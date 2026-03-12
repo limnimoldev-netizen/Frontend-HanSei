@@ -4,31 +4,31 @@
                 <div class="w-[80px] h-[90px] "> <img src="/../app/assets/logo-company.png" alt="" class="w-[100%] h-[100%] ml-[30px] pt-[20px]"></div>
                 <div class="flex flex-col mt-[100px] ml-[30px] gap-2">
                         <span class="text-lg text-gray-500 ">Dashboard</span>
-                            <nav class="ml-[50px] text-xl">
+                            <nav class="ml-[10px] text-lg">
                                 <ul class="leading-15 font-san">
                                     <li>
-                                    <NuxtLink to="/about" class="flex items-center gap-2">
+                                    <NuxtLink to="/attendance" class="flex items-center gap-2">
                                         <Icon name="mdi:account-group" class="text-2xl" />
                                         Employees Management
                                     </NuxtLink>
                                     </li>
 
                                     <li>
-                                    <NuxtLink to="/posts/1" class="flex items-center gap-2">
+                                    <NuxtLink to="/employees" class="flex items-center gap-2">
                                         <Icon name="mdi:calendar-check" class="text-2xl" />
                                         Attendance Management
                                     </NuxtLink>
                                     </li>
 
                                     <li>
-                                    <NuxtLink to="/posts/2" class="flex items-center gap-2">
+                                    <NuxtLink to="/roster" class="flex items-center gap-2">
                                         <Icon name="mdi:calendar-clock" class="text-2xl" />
                                         Roster Management
                                     </NuxtLink>
                                     </li>
 
                                     <li>
-                                    <NuxtLink to="/posts/2" class="flex items-center gap-2">
+                                    <NuxtLink to="/leave" class="flex items-center gap-2">
                                         <Icon name="mdi:calendar-remove" class="text-2xl" />
                                         Leave Management
                                     </NuxtLink>
@@ -39,8 +39,22 @@
             </div>
             <div class="w-full h-screen bg-secondary">
                     <div class="bg-primary w-full h-[80px] flex flex-ro justify-between items-center">
-                            <div class="w-[400px] h-[60px] bg-white ml-[20px] rounded-lg"></div>
-                            <div class="w-[300px] h-[70px] bg-red-500 mr-[20px]"></div>
+                            <div class="w-[400px] h-[50px] bg-white ml-[20px] rounded-lg flex  items-center">
+                                <Icon name="mdi:magnify" class="text-3xl ml-[20px] text-gray-500 " /> <span class="ml-[20px] text-gray-500">Search or type a command</span>
+                            </div>
+                            <div class="w-[300px] h-[60px]  mr-[20px] flex justify-center">
+                                <div class=" w-[220px] h-full border-white border-r-2 flex justify-center items-center gap-7">
+                                    <Icon name="mdi:lightning-bolt-outline" class="text-2xl text-white" />
+                                    <Icon name="mdi:account-plus-outline" class="text-2xl text-white" />
+                                    <Icon name="mdi:bell-outline" class="text-2xl text-white" />
+                                </div>
+                                <div class=" w-[55px] h-[55px] rounded-4xl bg-white flex  justify-center items-center ml-[20px]">
+                                    <Icon name="mdi:account-outline" class="text-3xl" />
+                                </div>
+                            </div>
+                    </div>
+                    <div class="bg-secondary w-full h-screen" >
+                        <NuxtPage />
                     </div>
             </div>
         
