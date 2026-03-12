@@ -1,3 +1,10 @@
+<script setup>
+
+    import AttendanceFilter from '../components/AttendanceFilter.vue';
+    import AttendanceTable from '../components/AttendanceTable.vue';
+
+</script>
+
 <template>
     
     <div class="bg-secondary font-san container banner  ">
@@ -72,9 +79,20 @@
                 <p class=" text-[#4d4d4d]">Wihtout informing</p>
                 
             </div>
+
         </div>
-            
-            
+
+        <AttendanceFilter />
+
+        <AttendanceTable />
+
+        
+        
+        
+        
+
+
+
     </div>
 
 
