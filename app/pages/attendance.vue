@@ -18,9 +18,9 @@
 
         
         
-        <div class="flex items-center gap-[25px]">
+        <div class="flex items-center gap-[85px]">
             
-            <div class=" mt-5 rounded-md border border-gray-300 p-[20px] border-2 h-[130px] w-[250px] boder-[#333]">
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
                 
                 <div class="flex items-center  gap-[10px]">
                         
@@ -35,7 +35,7 @@
                 
             </div>
 
-            <div class=" mt-5 rounded-md border border-gray-300 p-[20px] border-2 h-[130px] w-[250px] boder-[#333]">
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
                 
                 <div class="flex items-center  gap-[10px]">
                         
@@ -50,7 +50,7 @@
                 
             </div>
 
-            <div class=" mt-5 rounded-md border border-gray-300 p-[20px] border-2 h-[130px] w-[250px] boder-[#333]">
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
                 
                 <div class="flex items-center  gap-[10px]">
                         
@@ -60,22 +60,22 @@
                     
                 </div>
 
-                <p class="font-medium text-lg  mt-3">  06 </p>
+                <p class="font-medium text-lg  mt-3">  12 </p>
                 <p class=" text-[#4d4d4d]">Approved leave</p>
                 
             </div>
             
-            <div class=" mt-5 rounded-md border border-gray-300 p-[20px] border-2 h-[130px] w-[250px] boder-[#333]">
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
                 
                 <div class="flex items-center  gap-[10px]">
                         
-                    <Icon name="si-glyph:compass" class="text-2xl " />
+                    <Icon name="line-md:alert-circle" class="text-2xl " />
 
                     <p class="font-medium text-lg"> Absent</p>
                     
                 </div>
 
-                <p class="font-medium text-lg  mt-3">  01 </p>
+                <p class="font-medium text-lg  mt-3">  03 </p>
                 <p class=" text-[#4d4d4d]">Wihtout informing</p>
                 
             </div>
