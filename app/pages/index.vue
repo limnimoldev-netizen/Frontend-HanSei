@@ -1,62 +1,170 @@
 <template>
-    <nav class="w-full bg-primary h-screen flex">
-            <div class="w-[500px] h-screen bg-white border-r-2 border-gray-300">
-                <div class="w-[80px] h-[90px] "> <img src="/../app/assets/logo-company.png" alt="" class="w-[100%] h-[100%] ml-[30px] pt-[20px]"></div>
-                <div class="flex flex-col mt-[100px] ml-[30px] gap-2">
-                        <span class="text-lg text-gray-500 ">Dashboard</span>
-                            <nav class="ml-[10px] text-lg">
-                                <ul class="leading-15 font-san">
-                                    <li>
-                                    <NuxtLink to="/attendance" class="flex items-center gap-2">
-                                        <Icon name="mdi:account-group" class="text-2xl" />
-                                        Employees Management
-                                    </NuxtLink>
-                                    </li>
-
-                                    <li>
-                                    <NuxtLink to="/employees" class="flex items-center gap-2">
-                                        <Icon name="mdi:calendar-check" class="text-2xl" />
-                                        Attendance Management
-                                    </NuxtLink>
-                                    </li>
-
-                                    <li>
-                                    <NuxtLink to="/roster" class="flex items-center gap-2">
-                                        <Icon name="mdi:calendar-clock" class="text-2xl" />
-                                        Roster Management
-                                    </NuxtLink>
-                                    </li>
-
-                                    <li>
-                                    <NuxtLink to="/leave" class="flex items-center gap-2">
-                                        <Icon name="mdi:calendar-remove" class="text-2xl" />
-                                        Leave Management
-                                    </NuxtLink>
-                                    </li>
-                                </ul>
-                                </nav>
-                </div>
-            </div>
-            <div class="w-full h-screen bg-secondary">
-                    <div class="bg-primary w-full h-[80px] flex flex-ro justify-between items-center">
-                            <div class="w-[400px] h-[50px] bg-white ml-[20px] rounded-lg flex  items-center">
-                                <Icon name="mdi:magnify" class="text-3xl ml-[20px] text-gray-500 " /> <span class="ml-[20px] text-gray-500">Search or type a command</span>
-                            </div>
-                            <div class="w-[300px] h-[60px]  mr-[20px] flex justify-center">
-                                <div class=" w-[220px] h-full border-white border-r-2 flex justify-center items-center gap-7">
-                                    <Icon name="mdi:lightning-bolt-outline" class="text-2xl text-white" />
-                                    <Icon name="mdi:account-plus-outline" class="text-2xl text-white" />
-                                    <Icon name="mdi:bell-outline" class="text-2xl text-white" />
+            <div class="bg-secondary w-full h-[300px] p-[10px] text-gray-600 flex flex-col border-b-1">
+                                <span class="text-base">{{currentDateTime}}</span>
+                                <span class="p-[20px] text-4xl font-bold flex items-center gap-5"> <div class="bg-primary w-[100px] h-[100px] rounded-[50%] flex justify-center items-center"><Icon name="mdi:account-outline" class="text-6xl text-white" /></div>{{ greeting }}!</span>
+                                <span class="ml-[30px] p-[5px]">Create On: <span class="font-bold text-black">2 Mar,2025</span> </span>
+                                <span class="ml-[30px] p-[5px]">Position <span class="font-bold text-black">Risk Management </span> </span>
+                                <div class=" w-[350px] h-[100px] flex justify-center items-center gap-5">
+                                            <div class="bg-primary w-auto p-[10px] h-[35px] rounded-lg flex flex-row justify-center items-center gap-2 border border-white">
+                                            <Icon name="mdi:account-outline" class="text-2xl text-white" />
+                                            <span class="text-base text-white">Online: <span class="font-bold">98</span> </span>
+                                            </div>
+                                            <div class="bg-red-600 w-auto p-[10px] h-[35px] rounded-lg flex flex-row justify-center items-center gap-2 border border-white">
+                                            <Icon name="mdi:inbox-outline" class="text-2xl text-white" />
+                                            <span class="text-base text-white">Offline: <span class="font-bold">579</span> </span>
+                                            </div>
+                                            
+                                              
                                 </div>
-                                <div class=" w-[55px] h-[55px] rounded-4xl bg-white flex  justify-center items-center ml-[20px]">
-                                    <Icon name="mdi:account-outline" class="text-3xl" />
-                                </div>
-                            </div>
-                    </div>
-                    <div class="bg-secondary w-full h-screen" >
-                        <NuxtPage />
-                    </div>
+                               
+                                
             </div>
-        
-    </nav>
+             <div class="bg-primary w-full h-[550px] flex justify-evenly items-center">
+                    <div class="bg-white w-[350px] h-[90%] rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center p-8">
+    
+                        <div class="mb-4">
+                            <Icon name="mdi:account-group" class="text-5xl text-primary"  />
+                        </div>
+
+                        <span class="text-primary font-medium text-lg uppercase tracking-wide">
+                            Present Employees
+                        </span>
+
+                        <span class="text-7xl font-bold text-primary my-4">
+                            142
+                        </span>
+
+                        <div class="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
+                            <div class="h-2 w-2 rounded-full bg-green-500"></div>
+                            <span class="text-green-700 text-xs font-bold uppercase">Active Now</span>
+                            
+                            
+                        </div>
+                        
+                        <div class="flex items-center gap-2 bg-primary px-3 py-1 rounded-base border border-green-100 mt-[20px]">
+                            <span class="text-black text-xs font-bold uppercase">Total Employees</span>
+                        </div>
+
+                        <div class="flex items-center gap-2  px-3 py-1 rounded-base  mt-[5px]">
+                            <span class="text-black text-base font-bold uppercase">142/1235 <span class="text-gray-500">Employees</span></span>
+                        </div>
+
+                    </div>
+                     <div class="bg-white w-[350px] h-[90%] rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center p-8">
+    
+                        <div class="mb-4">
+                            <Icon name="mdi:account-group" class="text-5xl text-primary"  />
+                        </div>
+
+                        <span class="text-primary font-medium text-lg uppercase tracking-wide">
+                            Absent Employees
+                        </span>
+
+                        <span class="text-7xl font-bold text-red-500 my-4">
+                            1093
+                        </span>
+
+                        <div class="flex items-center gap-2 bg-red-50 px-3 py-1 rounded-full border border-green-100">
+                            <div class="h-2 w-2 rounded-full bg-red-500"></div>
+                            <span class="text-red-700 text-xs font-bold uppercase">Unactive </span>
+                            
+                            
+                        </div>
+                        
+                        <div class="flex items-center gap-2 bg-primary px-3 py-1 rounded-base border border-green-100 mt-[20px]">
+                            <span class="text-black text-xs font-bold uppercase">Total Employees</span>
+                        </div>
+
+                        <div class="flex items-center gap-2  px-3 py-1 rounded-base  mt-[5px]">
+                            <span class="text-black text-base font-bold uppercase">1093/1235 <span class="text-gray-500">Employees</span></span>
+                        </div>
+
+                    </div>
+
+                    <div class="bg-white w-[700px] h-[90%] rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center p-8">
+    
+                        <div class="mb-4">
+                            <Icon name="mdi:account-group" class="text-5xl text-primary"  />
+                        </div>
+
+                        <span class="text-primary font-medium text-lg uppercase tracking-wide">
+                            Absent Employees
+                        </span>
+
+                        <span class="text-7xl font-bold text-red-500 my-4">
+                            1093
+                        </span>
+
+                        <div class="flex items-center gap-2 bg-red-50 px-3 py-1 rounded-full border border-green-100">
+                            <div class="h-2 w-2 rounded-full bg-red-500"></div>
+                            <span class="text-red-700 text-xs font-bold uppercase">Unactive </span>
+                            
+                            
+                        </div>
+                        
+                        <div class="flex items-center gap-2 bg-primary px-3 py-1 rounded-base border border-green-100 mt-[20px]">
+                            <span class="text-black text-xs font-bold uppercase">Total Employees</span>
+                        </div>
+
+                        <div class="flex items-center gap-2  px-3 py-1 rounded-base  mt-[5px]">
+                            <span class="text-black text-base font-bold uppercase">1093/1235 <span class="text-gray-500">Employees</span></span>
+                        </div>
+
+                    </div>
+                    
+                    
+                    
+
+            </div>
+            
 </template>
+
+<script setup>
+    import { ref, onMounted, onUnmounted } from 'vue'
+
+    const currentDateTime = ref('') 
+    let timer
+
+    onMounted(() => {
+    const updateTime = () => {
+        currentDateTime.value = new Date().toLocaleString('en-US', {
+        weekday: 'long', 
+        year: 'numeric',
+        month: 'long',     
+        day: 'numeric',
+        })
+    }
+
+    updateTime()
+    timer = setInterval(updateTime, 1000)
+    })
+
+    onUnmounted(() => {
+    clearInterval(timer)
+    })
+
+
+
+        const greeting = ref('');
+
+        const setGreeting = () => {
+        const hour = new Date().getHours();
+
+        if (hour < 5) {
+            greeting.value = ' Good Night';
+        } else if (hour < 12) {
+            greeting.value = ' Good Morning';
+        } else if (hour < 17) {
+            greeting.value = ' Good Afternoon';
+        } else if (hour < 21) {
+            greeting.value = ' Good Evening';
+        } else {
+            greeting.value = '   Good Night';
+        }
+        };
+
+
+onMounted(() => {
+  setGreeting();
+});
+</script>
