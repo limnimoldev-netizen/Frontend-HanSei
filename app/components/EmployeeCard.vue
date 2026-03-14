@@ -1,61 +1,62 @@
-
 <template>
-   
-    <div class="flex items-center gap-[85px]">
+    
+        <div class="flex items-center gap-[85px]">
             
-        <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
-                
-            <div class="flex items-center  gap-[10px]">
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
+                    
+                <div class="flex items-center text-gray-500  gap-[10px]">
+                            
+                    <Icon name="mdi:account-group" class="text-xl " />
+                    <p class="font-medium text-sm"> Total Employees</p>
                         
-                <Icon name="si-glyph:square-checked" class="text-2xl " />
-                <p class="font-medium text-lg"> Present Today</p>
+                </div>
+
+                <p class="font-bold text-4xl mt-3"> 134 </p>
+                <p class=" text-green-600 mt-2 ">+3 <span class="text-gray-500">From last month</span></p>
                     
             </div>
 
-            <p class="font-medium text-lg  mt-3">  40 </p>
-            <p class=" text-[#4d4d4d]">134 People Remaining</p>
-                
-        </div>
-
-        <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
-                
-            <div class="flex items-center  gap-[10px]">
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
+                    
+                <div class="flex items-center text-gray-500  gap-[10px]">
                             
-                <Icon name="si-glyph:alarm-clock" class="text-2xl " />
-                <p class="font-medium text-lg"> Late Entry</p>
+                    <Icon name="mdi:account-plus" class="text-xl " />
+                    <p class="font-medium text-sm"> New Hires This Month</p>
                         
+                </div>
+
+                <p class="font-bold text-4xl mt-3"> 5 </p>
+                <p class=" text-green-600 mt-2 ">+2 <span class="text-gray-500">From last month</span></p>
+                    
+                    
             </div>
 
-            <p class="font-medium text-lg  mt-3">  26 </p>
-            <p class=" text-[#4d4d4d]">13 People are on time</p>
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
+                    
+                <div class="flex items-center text-gray-500  gap-[10px]">
+                            
+                    <Icon name="mdi:briefcase-variant" class="text-xl " />
+                    <p class="font-medium text-sm"> Average Tenure (Years)</p>
+                        
+                </div>
+
+                <p class="font-bold text-4xl mt-3"> 28 </p>
+                <p class=" text-green-600 mt-2 ">1.2% <span class="text-gray-500">From last year</span></p>
+                    
+            </div>
                 
+            <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
+                    
+                <div class="flex items-center text-gray-500  gap-[10px]">
+                            
+                    <Icon name="ic:outline-manage-accounts" class="text-xl " />
+                    <p class="font-medium text-sm">Active Department</p>
+                        
+                </div>
+
+                <p class="font-bold text-4xl mt-3"> 134 </p>
+                <p class=" text-red-600 mt-2 ">-1 <span class="text-gray-500">From last year</span></p>
+                    
+            </div>    
         </div>
-
-        <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
-                
-            <div class="flex items-center  gap-[10px]">
-                        
-                <Icon name="si-glyph:circle-forward" class="text-2xl " />
-                <p class="font-medium text-lg"> On Leave</p>        
-            </div>
-
-                <p class="font-medium text-lg  mt-3">  12 </p>
-                <p class=" text-[#4d4d4d]">Approved leave</p>
-                
-        </div>
-            
-        <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
-                
-            <div class="flex items-center  gap-[10px]">
-                        
-                <Icon name="line-md:alert-circle" class="text-2xl " />
-                <p class="font-medium text-lg"> Absent</p>   
-            </div>
-
-            <p class="font-medium text-lg  mt-3">  03 </p>
-            <p class=" text-[#4d4d4d]">Wihtout informing</p>
-                
-        </div>    
-    </div>
-
 </template>

@@ -1,8 +1,17 @@
+<script setup>
+    import EmployeeTable from '../components/EmployeeTable.vue';
+    import EmployeeCard from '../components/EmployeeCard.vue';
+    
+    
+</script>
+
+
+
 <template>
     
     <div class="bg-secondary font-san container banner  ">
         
-        <div class="flex items-center gap-[665px]">
+        <div class="flex items-center gap-[546px]">
             
             <div class="">
                 
@@ -14,8 +23,13 @@
            
             </div>
            
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-4">
                     
+                <button class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">
+                        <Icon name="lucide:arrow-down-to-line" class="text-xl text-gray-500" />
+                        <span>Export List</span>
+                </button>
+
                 <button class="flex items-center gap-2 bg-blue-500 border border-gray-200 px-4 py-2 rounded-lg text-white text-sm font-medium hover:text-gray-500 hover:bg-blue-200">
                     
                     <Icon name="ic:outline-person-add-alt" class="text-xl" />
@@ -27,8 +41,8 @@
         </div>
 
         
-   
-        <div class="flex items-center gap-[85px]">
+        <EmployeeCard />
+        <!-- <div class="flex items-center gap-[85px]">
             
             <div class=" mt-5 rounded-md border border-gray-300 p-[22px] border-2 h-[130px] w-[255px] boder-[#333]">
                     
@@ -86,7 +100,7 @@
                 <p class=" text-red-600 mt-2 ">-1 <span class="text-gray-500">From last year</span></p>
                     
             </div>    
-        </div>
+        </div> -->
 
         <div class="mt-8">
     
@@ -102,16 +116,9 @@
             
                 <div class="flex items-center gap-3">
                 
-                    <div class="flex flex items-center gap-2 ">
-                 
-                        <Icon name="mdi:account-group" class="text-xl text-blue-500 " />
-                        <p class="text-gray-400">Total Employee: <span class="text-black font-semibold">134 employees</span> </p>
-
-                    </div>
-                
-                    <button class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">
-                        <Icon name="ic:sharp-filter-alt" class="text-xl text-gray-500" />
-                        <span>Filter 03</span>
+                    <button class="flex items-center gap-2 bg-white border border-gray-200 px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">
+                        <Icon name="lucide:list-filter" class="text-xl text-gray-500" />
+                        <span>Filter </span>
                     </button>
                     
                     
@@ -122,7 +129,9 @@
   
         </div>
 
-        <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
+        <EmployeeTable />
+
+        <!-- <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
             
             <table class="w-full text-left border-collapse">
                 
@@ -240,7 +249,7 @@
 
             </table>
 
-        </div>
+        </div>     -->
 
     </div>
 
