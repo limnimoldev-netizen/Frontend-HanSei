@@ -17,8 +17,8 @@
             <div class="flex items-center gap-3">
             
                 <button class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">
-                    <Icon name="si-glyph:filter" class="text-gray-500" />
-                    <span>Filter 03</span>
+                    <Icon name="lucide:list-filter" class="text-gray-500" />
+                    <span>Filter </span>
                 </button>
                 
                 <button class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">
