@@ -1,10 +1,12 @@
 <template>
   
     <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-visible">
+        
         <table class="w-full text-left border-collapse">
             
             <thead class="bg-gray-50 border-b border-gray-100 text-gray-400 text-sm font-bold">
                 <tr>
+                   
                     <th class="p-4 w-10">
                         <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
                     </th>
@@ -52,26 +54,11 @@
 
                     <td class="p-4 text-center relative">
                         
-                        <button @click="openMenu = openMenu === index ? null : index" class="text-gray-400 hover:text-gray-600 p-1">
+                        <button class="text-gray-400 hover:text-gray-600 p-1">
                             <Icon name="bi:three-dots-vertical" class="text-xl" />
                         </button>
 
-                        <div v-if="openMenu === index" class="absolute right-0 top-10 w-56 bg-white border border-gray-100 shadow-xl rounded-lg z-50 py-2 text-left">
-                            <div class="px-4 py-2 hover:bg-gray-50 flex items-center gap-3 text-gray-600 cursor-pointer text-xs">
-                                <Icon name="ph:eye" /> View Profile
-                            </div>
-                            
-                            <div class="px-4 py-2 hover:bg-gray-50 flex items-center gap-3 text-gray-600 cursor-pointer text-xs">
-                                <Icon name="ph:pencil-simple" /> Edit Details
-                            </div>
-                            
-                            <hr class="my-1 border-gray-50" />
-                            
-                            <div @click="deleteEmp(index)" class="px-4 py-2 hover:bg-red-50 flex items-center gap-3 text-red-500 cursor-pointer text-xs font-bold">
-                                <Icon name="ph:trash" /> Delete Employee
-                            </div>
-
-                        </div>
+                        
                     </td>
                     
                 </tr>
@@ -85,13 +72,47 @@
 <script setup>
 import { ref } from 'vue'
 
-const openMenu = ref(null)
 
 const employees = ref([
-  { name: 'LimNi Mol', role: 'UI/UX Designer', dept: 'Marketing', pos: 'Manger', status: 'Active', date: '25-03-2026', ticked: true, img: 'http://localhost:3000/_nuxt/assets/employeepf.png' },
-  { name: 'Bessie Cooper', role: 'Product Designer', dept: 'HR', pos: 'Recruiter', status: 'Absent', date: '17-09-2022', ticked: false, img: 'http://localhost:3000/_nuxt/assets/employeepf2.png' },
-  { name: 'Apav Cuties', role: 'Full-Stack Developer', dept: 'Design', pos: 'UX/UI Designer', status: 'Active', date: '12-12-2024', ticked: false, img: 'http://localhost:3000/_nuxt/assets/employyee1.png' },
-  { name: 'Luo Liee', role: 'Finance', dept: 'Finance', pos: 'Finance Manger', status: 'On leave', date: '02-11-2024', ticked: false, img: 'http://localhost:3000/_nuxt/assets/employeepf3.png' }
+  { name: 'LimNi Mol',
+    role: 'UI/UX Designer', 
+    dept: 'Marketing', 
+    pos: 'Manger', 
+    status: 'Active', 
+    date: '25-03-2026', 
+    ticked: true, 
+    img: 'http://localhost:3000/_nuxt/assets/employeepf.png' },
+
+
+
+  { name: 'Bessie Cooper', 
+  role: 'Product Designer', 
+  dept: 'HR', 
+  pos: 'Recruiter', 
+  status: 'Absent', 
+  date: '17-09-2022', 
+  ticked: false, 
+  img: 'http://localhost:3000/_nuxt/assets/employeepf2.png' },
+
+
+  { name: 'Apav Cuties', 
+  role: 'Full-Stack Developer', 
+  dept: 'Design', 
+  pos: 'UX/UI Designer', 
+  status: 'Active', 
+  date: '12-12-2024', 
+  ticked: false, 
+  img: 'http://localhost:3000/_nuxt/assets/employyee1.png' },
+  
+
+  { name: 'Luo Liee', 
+    role: 'Finance', 
+    dept: 'Finance', 
+    pos: 'Finance Manger', 
+    status: 'On leave', 
+    date: '02-11-2024', 
+    ticked: false, 
+    img: 'http://localhost:3000/_nuxt/assets/employeepf3.png' }
 ])
 
 const getStatusClass = (status) => {
@@ -100,8 +121,5 @@ const getStatusClass = (status) => {
   return 'bg-orange-50 text-orange-500'
 }
 
-const deleteEmp = (index) => {
-  employees.value.splice(index, 1)
-  openMenu.value = null
-}
+
 </script>

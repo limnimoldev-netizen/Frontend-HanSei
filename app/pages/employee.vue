@@ -1,6 +1,11 @@
 <script setup>
     import EmployeeTable from '../components/EmployeeTable.vue';
     import EmployeeCard from '../components/EmployeeCard.vue';
+    import AddEmployee from '../components/AddEmployee.vue';
+    import EditDetail from '../components/EditDetail.vue';
+
+    
+
     
     
 </script>
@@ -128,7 +133,7 @@
             </div>
   
         </div>
-
+        
         <EmployeeTable />
 
         <!-- <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
@@ -250,6 +255,10 @@
             </table>
 
         </div>     -->
+        
+        <!-- <AddEmployee /> -->
+         <!-- <EditDetail /> -->
+
 
     </div>
 
