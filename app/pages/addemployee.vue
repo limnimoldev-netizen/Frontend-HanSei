@@ -1,10 +1,17 @@
 <template>
     
-    <div class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center p-4 z-50">
+    <div class="  flex justify-center items-center p-4 ">
         
-        <div class="bg-white w-full max-w-2xl rounded-2xl p-8 shadow-2xl relative">
+        <div class=" rounded-2xl p-8  relative">
             
-            <button class="absolute top-6 right-8 text-gray-400 text-2xl">✕</button>
+            <NuxtLink to="/employee">   
+                    
+                <button class="absolute top-6 right-8 text-gray-400 text-2xl">
+                
+                    <Icon name="mdi:close" class="text-2xl" />        
+                </button>  
+            </NuxtLink>
+           
 
             <h2 class="text-2xl font-bold text-gray-800">Add Employee</h2>
             <p class="text-sm text-gray-500 mb-8">Please fill out the form below to add a new employee.</p>
@@ -32,6 +39,7 @@
                 <div>
                    
                     <label class="block text-xs font-bold text-gray-400  mb-1">Phone Number</label>
+                    
                     <div class="flex border border-gray-200 rounded-xl overflow-hidden">
                         <span class="bg-gray-50 px-3 py-3  text-sm">+855</span>
                         <input type="text" placeholder="" class="w-full p-3 outline-none focus:border-blue-500">
@@ -43,17 +51,21 @@
                     <label class="block text-xs font-bold text-gray-400  mb-2">Employment Type</label>
                     
                     <div class="flex gap-4">
+                        
                         <label class="flex-1 flex items-center justify-between border-2 border-gray-100 p-3 rounded-xl cursor-pointer">
+                           
                             <span class="text-sm font-bold text-gray-600">Full-time</span>
                             <div class="w-4 h-4 border-2 border-gray-300 rounded-full"></div>
                         </label>
                         
                         <label class="flex-1 flex items-center justify-between border-2 border-gray-100 p-3 rounded-xl cursor-pointer">
+                           
                             <span class="text-sm font-bold text-gray-600">Part-time</span>
                             <div class="w-4 h-4 border-2 border-gray-300 rounded-full"></div>
                         </label>
                         
                         <label class="flex-1 flex items-center justify-between border-2 border-gray-100 p-3 rounded-xl cursor-pointer">
+                            
                             <span class="text-sm font-bold text-gray-600">Contract</span>
                             <div class="w-4 h-4 border-2 border-gray-300 rounded-full"></div>
                         </label>
@@ -64,10 +76,13 @@
                 <div>
                    
                     <label class="block text-xs font-bold text-gray-400  mb-1">Job Title</label>
+                    
                     <select class="w-full border border-gray-200 rounded-xl p-3 outline-none bg-white">
                         <option>UI/UX Designer</option>
+                        
                         <option>Frontend Developer</option>
                     </select>
+
 
                 </div>
 
@@ -82,7 +97,9 @@
                 <div>
                     
                     <label class="block text-xs font-bold text-gray-400  mb-1">Reporting Manager</label>
+                    
                     <select class="w-full border border-gray-200 rounded-xl p-3 outline-none bg-white">
+                        
                         <option>Apav Cuties</option>
                     </select>
                     
@@ -90,15 +107,20 @@
 
                 <div>
                     <label class="block text-xs font-bold text-gray-400  mb-1">Joined Date</label>
-                    <input type="text" placeholder="14 Mar 2026" class="w-full border border-gray-200 rounded-xl p-3 outline-none">
+                    <input type="text" placeholder="" class="w-full border border-gray-200 rounded-xl p-3 outline-none">
                 </div>
 
             </div>
 
             <div class="flex justify-between mt-10">
                 
-                <button class="px-8 py-3 border border-gray-200 rounded-xl font-bold text-gray-500">Cancel</button>
-                <button class="px-8 py-3 bg-blue-600 text-white rounded-xl font-bold">Add Employee</button>
+                <NuxtLink to="/employee">   
+                    
+                    <button class="px-6 py-2 border border-gray-200 rounded-xl hover:bg-gray-200 text-gray-500">Cancel</button>
+
+                </NuxtLink>
+                
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-xl  hover:bg-blue-300  ">Add Employee</button>
             </div>
 
         </div>
