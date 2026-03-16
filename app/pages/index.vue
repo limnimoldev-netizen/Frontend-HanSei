@@ -13,13 +13,11 @@
                                             <Icon name="mdi:inbox-outline" class="text-2xl text-white" />
                                             <span class="text-base text-white">Offline: <span class="font-bold">1093</span> </span>
                                             </div>
-                                            
-                                              
                                 </div>
                 
                                 
             </div>
-             <div class="bg-primary w-full h-[550px] flex justify-evenly items-center">
+            <div class="bg-primary w-full h-[550px] flex justify-evenly items-center">
                     <div class="bg-white w-[350px] h-[90%] rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center p-8">
     
                         <div class="mb-4">
@@ -50,7 +48,7 @@
                         </div>
 
                     </div>
-                     <div class="bg-white w-[350px] h-[90%] rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center p-8">
+                    <div class="bg-white w-[350px] h-[90%] rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center p-8">
     
                         <div class="mb-4">
                             <Icon name="mdi:account-group" class="text-5xl text-primary"  />
@@ -165,6 +163,6 @@
 
 
 onMounted(() => {
-  setGreeting();
+setGreeting();
 });
 </script>
