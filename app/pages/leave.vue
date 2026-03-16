@@ -6,17 +6,43 @@
 
       <!-- Total employe leave -->
 
-      <div class="flex p-6">
-
-        <Tablename
-
-        b
-        
-        />
+        <div class="justify-between items-center p-6 flex gap-2 w-full shadow mb-5 rounded-xl bg-secondary">
 
 
+          <box 
+          title="28"
+          content="Total Available Leaves"
+         
+          />
 
-      </div>
+
+           <box 
+          title="08"
+          content="Total Sick Leaves"
+         
+          />
+
+
+
+               <box 
+          title="08"
+          content="Total Sick Leaves"
+         
+          />
+
+
+
+          <box 
+          title="08"
+          content="Total Sick Leaves"
+         
+          />
+
+
+
+       
+
+        </div>
 
 
       <!-- leave-table -->
@@ -217,6 +243,7 @@
 <script setup>
 
 import Tablename from '../components/Tablename.vue';
+import box from '../components/box.vue';
 
 </script>
 

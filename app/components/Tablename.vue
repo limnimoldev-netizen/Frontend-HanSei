@@ -14,7 +14,7 @@
     <td class="p-6">{{ end }}</td>
     <td class="p-6">{{ day }}</td> 
               <td class="p-6 flex-1 gap-2">
-                <button class="bg-green-50 text-green-600 px-3 py-1 rounded-lg text-bold  transition duration-400 hover:bg-green-600 hover:text-secondary">
+                <button  class="bg-green-50 text-green-600 px-3 py-1 rounded-lg text-bold  transition duration-400 hover:bg-green-600 hover:text-secondary">
                   
                   {{ btnapprove }}
                 </button>
@@ -24,7 +24,6 @@
                 </button>
               </td>
 
-
    
   </tr>
 
@@ -32,7 +31,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+ defineProps({
   img:String,
   name: String,
   position: String,
@@ -47,6 +46,8 @@ const props = defineProps({
  
  
 });
+
+
 
 </script>
 
