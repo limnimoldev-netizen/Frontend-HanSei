@@ -16,7 +16,7 @@
     
     <div class="bg-secondary font-san container banner  ">
         
-        <div class="flex items-center gap-[546px]">
+        <div class="flex items-center gap-[515px]">
             
             <div class="">
                 
@@ -34,7 +34,7 @@
                         <Icon name="lucide:arrow-down-to-line" class="text-xl text-gray-500" />
                         <span>Export List</span>
                 </button>
-
+                
                 <button class="flex items-center gap-2 bg-blue-500 border border-gray-200 px-4 py-2 rounded-lg text-white text-sm font-medium hover:text-gray-500 hover:bg-blue-200">
                     
                     <Icon name="ic:outline-person-add-alt" class="text-xl" />
