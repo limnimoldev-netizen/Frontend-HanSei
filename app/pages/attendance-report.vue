@@ -49,7 +49,7 @@ const getStatusStyle = (status) => {
       <div class="grid grid-cols-1 gap-4">
         <div v-for="emp in employees" :key="emp.id" 
              @click="selectedStaff = emp"
-             class="group bg-white border border-slate-200 rounded-[2rem] p-6 hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+             class="group bg-white border border-slate-200 rounded-xl p-6 hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
           
           <div class="flex items-center gap-5 min-w-[250px]">
             <img :src="emp.avatar" class="w-16 h-16 rounded-2xl bg-slate-50 border shadow-inner" />
@@ -81,7 +81,7 @@ const getStatusStyle = (status) => {
 
       <transition name="fade">
         <div v-if="selectedStaff" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
-          <div class="bg-white w-full max-w-5xl rounded-[40px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div class="bg-white w-full max-w-5xl rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             
             <div class="p-8 border-b border-slate-100 flex justify-between items-center bg-white sticky top-0 z-10">
               <div class="flex items-center gap-4">
@@ -98,7 +98,7 @@ const getStatusStyle = (status) => {
 
             <div class="overflow-y-auto p-8 pt-4">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
                   <p class="text-[10px] font-black text-slate-400 uppercase mb-2">Monthly Target Progress</p>
                   <div class="w-full bg-slate-200 h-2 rounded-full mb-3 overflow-hidden">
                     <div class="bg-primary h-full" :style="{ width: (selectedStaff.summary.monthlyHours / selectedStaff.summary.targetHours * 100) + '%' }"></div>
@@ -106,7 +106,8 @@ const getStatusStyle = (status) => {
                   <p class="text-xl font-black">{{ selectedStaff.summary.monthlyHours }} <span class="text-sm font-normal text-slate-500">of {{ selectedStaff.summary.targetHours }} hrs reached</span></p>
                 </div>
                 
-                <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 col-span-2 flex justify-around items-center">
+                
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 col-span-2 flex justify-around items-center">
                   <div class="text-center">
                     <p class="text-[10px] font-black text-slate-400 uppercase">Regular Hours</p>
                     <p class="text-2xl font-black text-slate-800">160h</p>
@@ -122,10 +123,32 @@ const getStatusStyle = (status) => {
                     <p class="text-2xl font-black text-indigo-500">0d</p>
                   </div>
                 </div>
+
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 col-span-2 flex justify-around items-center">
+                  <div class="text-center">
+                    <p class="text-[10px] font-black text-slate-400 uppercase">Total Present</p>
+                    <p class="text-2xl font-black text-slate-800">842</p>
+                  </div>
+                  <div class="w-px h-10 bg-slate-200"></div>
+                  <div class="text-center">
+                    <p class="text-[10px] font-black text-slate-400 uppercase">Total Absent</p>
+                    <p class="text-2xl font-black text-red-500">8</p>
+                  </div>
+                  <div class="w-px h-10 bg-slate-200"></div>
+                  <div class="text-center">
+                    <p class="text-[10px] font-black text-slate-400 uppercase">Total Late</p>
+                    <p class="text-2xl font-black text-indigo-500">9</p>
+                  </div>
+                  <div class="w-px h-10 bg-slate-200"></div>
+                  <div class="text-center">
+                    <p class="text-[10px] font-black text-slate-400 uppercase">Total Leave</p>
+                    <p class="text-2xl font-black text-red-500">9</p>
+                  </div>
+                </div>
               </div>
 
               <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6 border-l-4 border-primary pl-4">Daily Check-In/Out Records</h3>
-              <div class="bg-white border border-slate-100 rounded-[2rem] overflow-hidden">
+              <div class="bg-white border border-slate-100 rounded-xl overflow-hidden">
                 <table class="w-full text-left">
                   <thead class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-wider">
                     <tr>

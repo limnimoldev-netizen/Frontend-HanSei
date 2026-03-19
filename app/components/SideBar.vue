@@ -60,10 +60,10 @@
                                     class="ml-[60px]  text-gray-500 text-base space-y-4"
                                     >
                                         <li>
-                                        <NuxtLink to="/attendance-report" class="transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">- Attendance Report</NuxtLink>
+                                        <NuxtLink to="/attendance-report" class="transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary"> Attendance Report</NuxtLink>
                                         </li>
                                         <li>
-                                        <NuxtLink to="/attendance-salary" class="transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">- Salary Report</NuxtLink>
+                                        <NuxtLink to="/attendance-salary" class="transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary"> Salary Report</NuxtLink>
                                         </li>
                                     </ul>
                                     </li>
