@@ -1,6 +1,9 @@
+
 <template>
     
     <div class="  flex justify-center items-center p-4 ">
+  
+          <sidebar />
         
         <div class=" rounded-2xl p-8  relative">
             
