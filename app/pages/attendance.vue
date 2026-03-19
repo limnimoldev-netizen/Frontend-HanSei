@@ -20,9 +20,8 @@
 
         
         <AttendanceCard />
-        
         <AttendanceFilter />
-
+        
         <AttendanceTable />
 
 
