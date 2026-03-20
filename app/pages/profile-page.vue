@@ -94,7 +94,7 @@
     </div>
 
      <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-168">
+      <div class="flex flex-col gap-3 w-2xl">
         <label for="">Current Position</label>
         <select name="" id="" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
             <option value="">Lecturer</option>

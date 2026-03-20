@@ -12,7 +12,7 @@ const totalSalary = computed(() => {
   const hourlyRate = baseSalary.value / (attendance.value * hours.value)
   const overtimePay = overtime.value * hourlyRate * 1.5
 
-  return baseSalary.value + overtimePay
+  return baseSalary.value + overtimePay 
 })
 </script>
 
