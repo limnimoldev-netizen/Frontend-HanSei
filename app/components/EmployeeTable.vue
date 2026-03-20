@@ -116,9 +116,11 @@ const employees = ref([
 ])
 
 const getStatusClass = (status) => {
-  if (status === 'Active') return 'bg-green-50 text-green-500'
-  if (status === 'Absent') return 'bg-red-50 text-red-500'
-  return 'bg-orange-50 text-orange-500'
+    
+    if (status === 'Active') return 'bg-green-50 text-green-500'
+    if (status === 'Absent') return 'bg-red-50 text-red-500'
+    
+    return 'bg-orange-50 text-orange-500'
 }
 
 

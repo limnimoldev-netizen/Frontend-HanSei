@@ -23,7 +23,7 @@
                 
                 <div>
                     <label class="block text-xs font-bold text-gray-400  mb-1">Employee ID</label>
-                    <input type="text" placeholder="" class="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-blue-500">
+                    <input type="text" placeholder="Enter id" class="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-blue-500">
                 
                 </div>
 
@@ -78,9 +78,10 @@
 
                 <div>
                    
-                    <label class="block text-xs font-bold text-gray-400  mb-1">Job Title</label>
+                    <label class="block text-xs font-bold text-gray-400  mb-1">Position</label>
                     
-                    <select class="w-full border border-gray-200 rounded-xl p-3 outline-none bg-white">
+                    <select class="w-full border border-blue-500 rounded-xl p-3 outline-none bg-white">
+                        <option>None</option>
                         <option>UI/UX Designer</option>
                         
                         <option>Frontend Developer</option>
@@ -91,8 +92,9 @@
 
                 <div>
                     <label class="block text-xs font-bold text-gray-400  mb-1">Department</label>
-                    <select class="w-full border border-gray-200 rounded-xl p-3 outline-none bg-white">
-                        <option>Design</option>
+                    <select class="w-full border border-blue-500 rounded-xl p-3 outline-none bg-white">
+                        <option>None</option>
+                        <option>Designer</option>
                         <option>Development</option>
                     </select>
                 </div>
@@ -103,6 +105,7 @@
                     
                     <select class="w-full border border-gray-200 rounded-xl p-3 outline-none bg-white">
                         
+                        <option>Nimol Lim</option>
                         <option>Apav Cuties</option>
                     </select>
                     

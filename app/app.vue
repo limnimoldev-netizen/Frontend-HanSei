@@ -8,9 +8,4 @@
 
 </template>
 
-<script setup>
-
-
-</script>
-
 
