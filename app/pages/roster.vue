@@ -1,6 +1,15 @@
 <template>
   <section class="max-w-6xl mx-auto p-6">
 
+
+
+
+    <!-- detail information -->
+
+    
+
+
+
     <!-- content -->
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-2xl font-bold border-b">Roster Management</h1>
