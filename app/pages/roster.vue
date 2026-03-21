@@ -6,28 +6,28 @@
       <h1 class="text-2xl font-bold border-b">Roster Management</h1>
 
       <button
-        @click="showModal = true"
-        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex gap-2"
-      >
-        + Add Schedule
-      </button>
+      @click="openAdd"
+      class="bg-green-600 text-white px-4 py-2 rounded"
+    >
+      + Add Schedule
+    </button>
     </div>
 
     <!-- Table -->
     <div class="bg-white rounded shadow overflow-hidden">
-      <table class="w-full text-left">
+      <table class="w-full text-left ">
 
-        <thead class="bg-blue-600 text-white">
-          <tr>
-            <th class="p-3">Employee</th>
-            <th class="p-3">Date</th>
-            <th class="p-3">Shift</th>
-            <th class="p-3">Status</th>
-            <th class="p-3">Status</th>
-            
-
-          </tr>
-        </thead>
+        <thead class="bg-blue-600 text-white uppercase text-sm">
+        <tr>
+          <th class="py-4 px-4 text-left">Employee</th>
+          <th class="py-4 px-4 text-left">Position</th>
+          <th class="py-4 px-4 text-left">Department</th>
+          <th class="py-4 px-4 text-left">Date</th>
+          <th class="py-4 px-4 text-left">Shift</th>
+          <th class="py-4 px-4 text-left">Status</th>
+          <th class="py-4 px-4 text-left">Action</th>
+        </tr>
+      </thead>
 
         <tbody>
           <tr
@@ -35,15 +35,34 @@
             :key="index"
             class="border-t"
           >
-            <td class="p-3">{{ item.employee }}</td>
-            <td class="p-3">{{ item.date }}</td>
-            <td class="p-3">{{ item.shift }}</td>
-            <td class="p-3 font-semibold"
+            <td class="p-4">{{ item.employee }}</td>
+            <td class="p-4">{{ item.position}}</td>
+            <td class="p-4">{{ item.department}}</td>
+            <td class="p-4">{{ item.date }}</td>
+            <td class="p-4">{{ item.shift }}</td>
+            <td class="p-4 font-semibold"
                 :class="{
                 'text-green-600': item.status === 'Working',
                 'text-red-600': item.status === 'Leave' || item.status === 'Off'
                 }"
             >{{ item.status }}</td>
+             <td class="p-4 flex gap-3">
+            <!-- Edit -->
+            <button 
+              @click="editItem(item, index)"
+              class="text-green-500 hover:text-blue-700"
+            >
+              <Icon name="material-symbols:edit" class="text-sm h-25 w-25" />
+            </button>
+
+            <!-- Delete -->
+            <button 
+              @click="deleteItem(index)"
+              class="text-red-500 hover:text-red-700"
+            >
+              <Icon name="line-md:account-delete" class="text-sm" />
+            </button>
+          </td>
           </tr>
         </tbody>
 
@@ -64,6 +83,22 @@
         v-model="form.employee"
         type="text"
         placeholder="Employee Name"
+        class="w-full border p-2 rounded mb-3"
+      />
+
+
+      <input
+        v-model="form.position"
+        type="text"
+        placeholder="your position"
+        class="w-full border p-2 rounded mb-3"
+      />
+
+
+      <input
+        v-model="form.department"
+        type="text"
+        placeholder="your department"
         class="w-full border p-2 rounded mb-3"
       />
 
@@ -93,26 +128,28 @@
           Cancel
         </button>
 
-        <button
-          @click="addSchedule"
-          class="bg-green-600 text-white px-3 py-2 rounded"
-        >
-          Save
-        </button>
+      <button
+        @click="saveSchedule"
+        class="bg-green-600 text-white px-3 py-2 rounded"
+      >
+        Save
+      </button>
       </div>
 
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref } from "vue"
 
-
 const showModal = ref(false)
+const editIndex = ref(null)
+
 const schedules = ref([
   {
     employee: "Mony",
+    position: "Manager",
+    department: "IT Department",
     date: "2026-03-15",
     shift: "Morning",
     status: "Working"
@@ -121,22 +158,58 @@ const schedules = ref([
 
 const form = ref({
   employee: "",
+  position: "",
+  department: "",
   date: "",
   shift: "Morning",
   status: "Working"
 })
 
-function addSchedule() {
-  schedules.value.push({ ...form.value })
+
+function openAdd() {
+  resetForm()
+  showModal.value = true
+}
 
 
+function saveSchedule() {
+  if (editIndex.value !== null) {
+    
+    schedules.value[editIndex.value] = { ...form.value }
+  } else {
+    
+    schedules.value.push({ ...form.value })
+  }
+
+  resetForm()
+}
+
+// EDIT
+function editItem(item, index) {
+  form.value = { ...item }
+  editIndex.value = index
+  showModal.value = true
+}
+
+// DELETE
+function deleteItem(index) {
+  if (confirm("Delete this schedule?")) {
+    schedules.value.splice(index, 1)
+  }
+}
+
+// FORM
+function resetForm() {
   form.value = {
     employee: "",
+    position: "",
+    department: "",
     date: "",
     shift: "Morning",
     status: "Working"
   }
 
+  editIndex.value = null
   showModal.value = false
 }
 </script>
