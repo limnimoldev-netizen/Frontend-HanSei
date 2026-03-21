@@ -6,7 +6,7 @@
 
     <!-- detail information -->
 
-    
+  
 
 
 
@@ -149,6 +149,7 @@
   </div>
 </template>
 <script setup>
+import Box from "~/components/Box.vue"
 import { ref } from "vue"
 
 const showModal = ref(false)
