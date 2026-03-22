@@ -1,130 +1,209 @@
 <template>
-    <div class="flex flex-col gap-3 ml-20 mr-20">
-        <div class="text-3xl">
-             <h1>Profile picture change</h1>
-        </div>
-    <div class="flex gap-5 items-center pb-5 border-b ">
-      <div class="w-30 h-30 bg-primary rounded-full overflow-hidden">
-        <img src="https://cdn-icons-png.flaticon.com/512/7084/7084424.png" alt="">
-      </div>
-      <button class="p-3 rounded-lg border-gray-400 border hover:bg-primary">Change</button>
-      <button class="p-3 rounded-lg border-gray-400 border hover:bg-primary">Remove</button>
-    </div>
-    <h1 class="text-2xl font-semibold">Personal Information</h1>
-    <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">First Name</label>
-        <form action="">
-          <input type="text" placeholder="Vannara" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Last Name</label>
-        <form action="">
-          <input type="text" placeholder="Rin" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-    </div>
-    <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Gender</label>
-        <div class="grid grid-cols-2 border border-gray-400 rounded-lg">
-          <form action="" class="w-full flex gap-6 items-center p-5 border-r border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
-            <input type="radio" class="w-5 h-5">
-            <label for="">Male</label>
-          </form>
-          <form action="" class="w-full flex gap-6 items-center p-5 border-l border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
-            <input type="radio" class="w-5 h-5">
-            <label for="">Female</label>
-          </form>
-        </div>
-      </div>
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Date of birth</label>
-        <form action="">
-          <input type="date" placeholder="Rin" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-    </div>
-    <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Telephone</label>
-        <form action="">
-          <input type="text" placeholder="12 345 6789" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Email Address</label>
-        <form action="">
-          <input type="email" placeholder="example@gmail.com" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-    </div>
-
-
-    <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Mbbs passing year</label>
-        <form action="">
-          <input type="date" placeholder="2016" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Designation</label>
-        <form action="">
-          <input type="text" placeholder="Lacturer" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-    </div>
-
-
-      <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">Bmdc reg</label>
-        <form action="">
-          <input type="text" placeholder="243576" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-      <div class="flex flex-col gap-3 w-full">
-        <label for="">First date of joining</label>
-        <form action="">
-          <input type="date" placeholder="" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-    </div>
-
-     <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-168">
-        <label for="">Current Position</label>
-        <select name="" id="" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-            <option value="">Lecturer</option>
-        </select>
-      </div>
-      </div>
-
-
-      <div class="flex gap-5">
-      <div class="flex flex-col gap-3 w-81">
-        <label for="">New Position</label>
-        <form action="">
-          <input type="text" placeholder="Lacturer" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-      <div class="flex flex-col gap-3 w-81">
-        <label for="">Active Date</label>
-        <form action="">
-          <input type="date" placeholder="" class="w-full p-5 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-        </form>
-      </div>
-    </div>
+  
+    <div class="p-8 bg-secondary banner container font-sans">
     
-    <div class="flex items-center justify-center gap-4">
-        <button class="p-3 rounded-lg border-gray-400 border w-50 hover:bg-primary
-        ">Cancel</button>
-        <button class="p-3 rounded-lg border-gray-400 border w-50 hover:bg-primary
-        ">Save</button>
-    </div>9
+        <div class="flex items-center gap-4 mb-8">
+          
+            <NuxtLink to="/attendance" class="p-2 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-all">
+            
+              <Icon name="lucide:arrow-left" class="text-xl text-gray-600" />
+            </NuxtLink>
+
+            <h1 class="text-2xl font-black text-[#333]">Employee Profile</h1>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+          
+            <div class="w-full lg:w-1/3">
+              
+              <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center">
+                  
+                  <div class="relative">
+                    
+                      <img src="../assets/employeepf4.png" class="w-32 h-32 rounded-full object-cover border-4 border-blue-50 shadow-md" />
+                  
+                  </div>
+                
+                  <h2 class="mt-4 text-xl font-bold text-gray-800">LimNi Mol</h2>
+                  <p class="text-sm text-gray-400 font-medium mb-6">UI/UX Designer</p>
+                  
+                  <div class="w-full border-t border-gray-100 pt-6 flex flex-col gap-4">
+                    
+                    <div class="flex items-center justify-between text-sm">
+                      
+                      <span class="text-gray-500">Employee ID</span>
+                      <span class="font-bold text-gray-700">EMP-2026-001</span>
+
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-sm">
+                      
+                      <span class="text-gray-500">Join Date</span>
+                      <span class="font-bold text-gray-700">12 Jan 2024</span>
+
+                    </div>
+
+                  </div>
+
+              </div>
+
+            </div>
+
+          <div class="flex-1 space-y-6">
+            
+              <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+                  
+                  <div class="flex items-center justify-between mb-6">
+                   
+                      <h3 class="text-xl font-bold text-gray-800">Personal Information</h3>
+                      
+                      <NuxtLink to="editdetail" class="text-[#1440b8] text-sm font-bold hover:underline">
+                        Edit Info
+                      </NuxtLink>
+                      
+                  </div>
+                
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div>
+                      
+                      <p class="text-base text-gray-400  font-black  mb-1">Email Address</p>
+                      
+                      <p class="text-sm font-medium text-gray-700">limnimol@hansei.com</p>
+                    </div>
+
+                    <div>
+                      
+                      <p class="text-base text-gray-400  font-black mb-1">Phone Number</p>
+                      <p class="text-sm font-medium text-gray-700">+855 12 345 678</p>
+                    
+                    </div>
+                    
+                    <div>
+                      <p class="text-base text-gray-400  font-black  mb-1">Location</p>
+                      <p class="text-sm font-medium text-gray-700">Phnom Penh, Cambodia</p>
+                    </div>
+
+                    <div>
+                      
+                      <p class="text-base text-gray-400  font-black  mb-1">Department</p>
+                      <p class="text-sm font-medium text-gray-700">Product Design</p>
+                    </div>
+
+                  </div>
+
+              </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              
+                <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl">
+                  
+                  <p class="text-blue-600 text-xs font-bold ">Work Days</p>
+                  <p class="text-2xl font-black text-blue-900 mt-1">220</p>
+                  
+                </div>
+
+                <div class="bg-purple-50 border border-purple-100 p-6 rounded-2xl">
+                  
+                  <p class="text-purple-600 text-xs font-bold ">Leave Days</p>
+                  <p class="text-2xl font-black text-purple-900 mt-1">12</p>
+                </div>
+
+
+                <div class="bg-orange-50 border border-orange-100 p-6 rounded-2xl">
+                  
+                  <p class="text-orange-600 text-xs font-bold ">Late Entries</p>
+                  <p class="text-2xl font-black text-orange-900 mt-1">05</p>
+                </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+  
+          <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+            
+              <h3 class="text-xl font-bold text-gray-800 mb-6">Expertise</h3>
+              
+              <div class="flex flex-wrap gap-2">
+                  
+                <span v-for="skill in ['Figma', 'Vue.js', 'Tailwind CSS', 'Laravel']" :key="skill" class="bg-blue-50 text-[#1440b8] border border-blue-100 px-4 py-2 rounded-full text-xs font-bold">
+                    {{ skill }}
+                  </span>
+
+              </div>
+
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+            
+              <div class="flex items-center justify-between mb-4">
+                
+                <h3 class="text-xl font-bold text-gray-800">Attendance Rating</h3>
+                
+
+              </div>
+              <p class="text-green-500 font-black text-3xl">98%</p>
+
+                
+              <p class="text-sm text-gray-400 mt-3 font-medium ">Excellent Reliability</p>
+
+          </div>
+
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm mt-6">
+            
+          <h3 class="text-xl font-bold text-gray-800 mb-6">Recent Activity</h3>
+            
+            <div class="space-y-6">
+              
+              <div v-for="activity in activities" :key="activity.id" class="flex gap-4">
+                
+                  
+                  <div class="pb-2">
+                    
+                    <p class="text-base font-bold text-gray-700">{{ activity.title }}</p>
+
+                    <p class="text-xs text-gray-400">{{ activity.time }}</p>
+                  </div>
+
+              </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</template>
+
+
+
+<script setup>
+
+const activities = [
+
+  { id: 1, 
+    title: 'Checked in for Morning Shift', 
+    time: 'Today, 08:00 AM' },
+
+
+  { id: 2, 
+    title: 'Requested Leave for Khmer New Year', 
+    time: 'Yesterday, 02:30 PM' },
+
+
+  { id: 3, 
+    title: 'Completed UI Refactor Project', 
+    time: '21 March 2026' }
 
     
-  </div>
-  </template>
+]
+
+</script>
