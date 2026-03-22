@@ -1,5 +1,5 @@
 
-<template>
+<!-- <template>
   
     <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
         
@@ -166,9 +166,9 @@
 
     </div>
 
-</template>
+</template> -->
 
-<!-- <template>
+<template>
     
     <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
         
@@ -278,4 +278,6 @@ const attendanceData = [
     fri: '9', sat: '10'
   }
 ]
-</script> -->
+
+
+</script>
