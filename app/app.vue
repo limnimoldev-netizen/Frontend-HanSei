@@ -1,4 +1,10 @@
 <template>
-     <SideBar />
+  <div>
+    <NuxtRouteAnnouncer />
+    
+    <NuxtPage />
+  </div>
+
 </template>
+
 
