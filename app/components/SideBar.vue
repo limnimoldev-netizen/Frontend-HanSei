@@ -45,7 +45,7 @@
                             <nav class=" text-lg">
                                 <ul class="leading-15 font-san">
                                     <li>
-                                    <NuxtLink to="/employees" class="flex items-center gap-2 transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">
+                                    <NuxtLink to="/employee" class="flex items-center gap-2 transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">
                                         <Icon name="mdi:account-group" class="text-2xl ml-[20px]" />
                                         Employees 
                                     </NuxtLink>

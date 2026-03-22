@@ -1,5 +1,5 @@
 <template>
-  <attendance-card/>
+  <attendance-card-dash-board/>
 </template>
 
 <script setup lang="ts">
