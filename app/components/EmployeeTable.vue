@@ -1,11 +1,11 @@
 <template>
     
-    <div class="mt-6 bg-white border border-gray-200 rounded-xl shadow-sm overflow-visible font-san">
+    <div class="mt-6 bg-white border border-gray-200 rounded-2xl  overflow-visible font-san">
         
-        <div class="bg-gray-50 border-b border-gray-100 flex items-center text-gray-400 text-sm font-black  tracking-wider px-6 py-4">
+        <div class="bg-primary border-b  flex items-center text-[#FFFF] text-sm font-black  px-6 py-5">
             
             <div class="w-10">
-                <input type="checkbox" @change="toggleAll" :checked="isAllSelected" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
+                <input type="checkbox" @change="toggleAll" :checked="isAllSelected" class="w-4 h-4 rounded border-gray-300 text-blue-600  " />
             </div>
             
             <div class="flex-1 px-4">Name</div>
@@ -57,11 +57,12 @@
 
                     <div v-if="activeMenu === index" class="absolute right-12 top-0 w-48 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 py-2 text-left animate-in fade-in slide-in-from-right-2 duration-200">
                         
-                        <button @click="activeMenu = null" class="w-full flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 transition-colors">
+                        <NuxtLink to="/employeeprofile" class="w-full flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 transition-colors"@click="activeMenu = null">
                             
                             <Icon name="lucide:eye" class="text-sm text-gray-400" />
                             <span class="font-bold text-[13px]">View Profile</span>
-                        </button>
+                        
+                        </NuxtLink>
 
                         <NuxtLink to="/EditDetail" class="w-full flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 transition-colors"@click="activeMenu = null">
                             

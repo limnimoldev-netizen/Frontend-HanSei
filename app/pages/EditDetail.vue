@@ -1,6 +1,11 @@
+<script setup lang="ts">
+import Employee from './employee.vue';
+
+</script>
+
 <template>
     
-    <div class="fixed inset-0  bg-opacity-50 flex justify-center items-center p-4">
+    <div class="fixed inset-0  bg-gray-200 flex justify-center items-center p-4">
         
         <div class="bg-white w-full max-w-xl rounded-2xl p-8 shadow-xl relative">
         
@@ -64,25 +69,30 @@
 
                 <div>
                     <p class="text-sm text-gray-400 mb-1">Email</p>
-                    <input type="text" value="" class="w-full border-b-2 border-gray-100 py-2 outline-none font-medium">
+                    <input type="text" value="" class="w-full border-b-2 border-gray-100  outline-none font-medium">
                 </div>
 
                 <div>
                     <p class="text-sm text-gray-400 f mb-1">Employee ID</p>
-                    <input type="text" value="" class="w-full border-b-2 border-gray-100 py-2 outline-none font-medium">
+                    <input type="text" value="" class="w-full border-b-2 border-gray-100  outline-none font-medium">
                 </div>
 
             </div>
 
-            <div class="flex gap-4 mt-12">
-               
-                <button class="flex-1 py-3 border-2 border-gray-100 rounded-2xl font-bold text-gray-500 hover:bg-gray-50">
-                Cancel
-                </button>
+            <NuxtLink to="/employee" >
                 
-                <button class="flex-1 py-3 bg-blue-500 text-white rounded-2xl font-bold hover:bg-blue-300">Save</button>
-            </div>
+                <div class="flex gap-4 mt-5">
+                    <button type="button"@click="Employee = null"class="flex-1 py-3 border-2 border-gray-100 rounded-2xl ">
+                        Cancel
+                    </button>
+                    
+                    <button type="submit"class="flex-1 py-3 bg-blue-500 text-white rounded-2xl font-bold hover:bg-blue-600 transition-colors">
+                        Save Employee
+                    </button>
+                </div>
 
+            </NuxtLink>
+            
         </div>
     </div>
 </template>
