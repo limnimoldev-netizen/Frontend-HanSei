@@ -2,7 +2,7 @@
     
     <div class="mt-6 bg-white border border-gray-200 rounded-2xl  overflow-visible font-san">
         
-        <div class="bg-primary border-b  flex items-center text-[#FFFF] text-sm font-black  px-6 py-5">
+        <div class="bg-primary border-b  flex items-center text-[#FFFF] text-base font-black  px-6 py-5">
             
             <div class="w-10">
                 <input type="checkbox" @change="toggleAll" :checked="isAllSelected" class="w-4 h-4 rounded border-gray-300 text-blue-600  " />
@@ -19,7 +19,7 @@
 
         <div class="divide-y divide-gray-100">
             
-            <div v-for="(emp, index) in employees" :key="index" class="flex items-center px-6 py-4 hover:bg-gray-50/50 transition-colors text-sm group">
+            <div v-for="(emp, index) in employees" :key="index" class="flex items-center px-6 py-4 hover:bg-gray-50/50 transition-colors text-;g group">
                 
                 <div class="w-10">
                     
@@ -28,10 +28,10 @@
 
                 <div class="flex-1 flex items-center gap-3 px-4">
                     <img :src="emp.img" @error="emp.img = '../assets/employeepf.png=' + emp.name" 
-                         class="w-10 h-10 rounded-full object-cover border border-gray-100 shadow-sm" />
+                         class="w-15 h-15 rounded-full object-cover border border-gray-100 shadow-sm" />
                     <div>
                         <p class="font-bold text-gray-800">{{ emp.name }}</p>
-                        <p class="text-[11px] text-gray-400 font-medium">{{ emp.role }}</p>
+                        <p class="text-sm text-gray-400 font-medium">{{ emp.role }}</p>
                     </div>
 
                 </div>
@@ -41,7 +41,7 @@
                 
                 <div class="w-32 flex justify-center">
                     
-                    <span :class="getStatusClass(emp.status)" class="px-3 py-1 rounded-full text-[10px] font-black  tracking-tight">
+                    <span :class="getStatusClass(emp.status)" class="px-3 py-1 rounded-full text-sm font-black  tracking-tight">
                         {{ emp.status }}
                     </span>
 
