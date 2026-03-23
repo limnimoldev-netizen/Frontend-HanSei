@@ -2,24 +2,6 @@
   <section class="max-w-6xl mx-auto p-6">
 
 
-
-
-    <!-- detail information -->
-     <div class="justify-between items-center p-6 flex gap-2 w-full shadow mb-5 rounded-xl bg-secondary">
-      <Box 
-      img="https://i.pinimg.com/1200x/42/90/32/429032d6af1827671413c977766c1049.jpg"
-      />
-       <Box 
-      img="https://i.pinimg.com/1200x/85/95/7f/85957f8aba52e654066b75a51482dec7.jpg"
-      />
-       <Box 
-      img="https://i.pinimg.com/736x/40/c0/76/40c076c373ccaa910a9331a513e17dd5.jpg"
-      />
-     </div>
-  
-
-
-
     <!-- content -->
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-2xl font-bold border-b">Roster Management</h1>
@@ -159,7 +141,6 @@
   </div>
 </template>
 <script setup>
-import Box from "~/components/Box.vue"
 import { ref } from "vue"
 
 const showModal = ref(false)
