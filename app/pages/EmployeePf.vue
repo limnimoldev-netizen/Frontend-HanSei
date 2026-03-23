@@ -87,23 +87,25 @@ const tabs = ['General', 'Payroll', 'Attendance', 'Leave', 'Performance'];
             
             <button v-for="tab in tabs" :key="tab" @click="activeTab = tab":class="activeTab === tab ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-400 hover:text-gray-600'"
             
-            class="pb-4 text-sm font-bold transition-all px-2">
+            class="pb-4 text-sm  px-2">
                 {{ tab }}
             
             </button>
         </div>
 
 
-        <div v-if="activeTab === 'Payroll'" class="grid grid-cols-4 gap-6 mb-8">
+        <div v-if="activeTab === 'Payroll'" class="grid grid-cols-4  gap-6 mb-8">
            
-           <div v-for="stat in [
+           <!-- <div v-for="stat in [ 
+
                 { label: 'Net Salary (Year to Date)', 
                     value: 'Rp 147.300.000', 
                     sub: 'Includes all processed payroll' },
 
                 { label: 'Average Net Salary', 
-                value: 'Rp 12.275.000', 
+                    value: 'Rp 12.275.000', 
                     sub: 'Calculated from last 12 periods' },
+
 
                 { label: 'Last Payroll Amount', 
                 value: 'Rp 12.500.000', 
@@ -119,7 +121,7 @@ const tabs = ['General', 'Payroll', 'Attendance', 'Leave', 'Performance'];
                 <p class="text-2xl font-black text-gray-800">{{ stat.value }}</p>
                 <p class="text-[10px] text-gray-400 mt-2">{{ stat.sub }}</p>
 
-            </div>
+            </div> -->
 
         </div>
 
@@ -148,7 +150,7 @@ const tabs = ['General', 'Payroll', 'Attendance', 'Leave', 'Performance'];
             
             <table class="w-full text-left">
                 
-                <thead class="bg-gray-50/50 text-[11px] uppercase tracking-wider text-gray-400 font-black">
+                <thead class="bg-gray-50/50 text-sm text-gray-400 font-black">
                    
                     <tr>
                         <th class="p-4">Payroll Period</th>
@@ -160,9 +162,9 @@ const tabs = ['General', 'Payroll', 'Attendance', 'Leave', 'Performance'];
 
                 </thead>
 
-                <tbody class="divide-y divide-gray-50 text-sm font-medium text-gray-600">
+                <tbody class="divide-y divide-gray-50 text-sm  text-gray-600">
                     
-                    <tr v-for="i in 3" :key="i" class="hover:bg-gray-50/50 transition-colors">
+                    <tr v-for="i in 3" :key="i" class="hover:bg-gray-50/50 ">
                         
                         <td class="p-4">Jan 2026</td>
                         <td class="p-4 font-bold text-gray-800">Rp 15.000.000</td>
@@ -170,7 +172,7 @@ const tabs = ['General', 'Payroll', 'Attendance', 'Leave', 'Performance'];
                         <td class="p-4 font-bold text-blue-600">Rp 12.500.000</td>
                         
                         <td class="p-4 text-center">
-                            <span class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-[10px] font-black uppercase">Paid</span>
+                            <span class="px-3 py-1 bg-green-50 text-green-600 rounded-md text-[10px] font-black ">Paid</span>
                         </td>
                         
                     </tr>
@@ -233,7 +235,7 @@ const tabs = ['General', 'Payroll', 'Attendance', 'Leave', 'Performance'];
 
                     <div class="flex justify-between border-b border-gray-50 pb-3">
                         <p class="text-sm font-bold text-gray-400">Probation</p>
-                        <p class="text-sm font-black text-green-500 uppercase">Passed</p>
+                        <p class="text-sm font-black text-green-500 ">Passed</p>
                     </div>
 
                     <div class="flex justify-between">
