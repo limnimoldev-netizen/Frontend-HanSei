@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import Employee from './employee.vue';
+import { ref } from 'vue'
+import EmployeeComponent from './employee.vue'
 
 </script>
 
@@ -79,20 +80,29 @@ import Employee from './employee.vue';
 
             </div>
 
-            <NuxtLink to="/employee" >
+            
+
+
+            <div class="flex gap-4 mt-5">
                 
-                <div class="flex gap-4 mt-5">
-                    <button type="button"@click="Employee = null"class="flex-1 py-3 border-2 border-gray-100 rounded-2xl ">
+                <NuxtLink to="/employee" class="flex-1">
+                   
+                    <button type="button" class="w-full py-3 border-2 border-gray-100 rounded-2xl">
                         Cancel
                     </button>
+
+                </NuxtLink>
+                                    
+                <NuxtLink to="/employee" class="flex-1">
                     
-                    <button type="submit"class="flex-1 py-3 bg-blue-500 text-white rounded-2xl font-bold hover:bg-blue-600 transition-colors">
+                    <button type="submit" class="w-full py-3 bg-blue-500 text-white rounded-2xl font-bold hover:bg-blue-600 transition-colors">
                         Save Employee
                     </button>
-                </div>
 
-            </NuxtLink>
-            
+                </NuxtLink>
+
+            </div>
+                        
         </div>
     </div>
 </template>
