@@ -16,7 +16,7 @@
             <div class="">
                 
 
-                <h1 class="text-3xl font-semibold text-[#333] ">
+                <h1 class="text-2xl font-semibold text-[#333] ">
                  Employees List
                 </h1>
                 <p class=" text-[#4d4d4d]">Manage and oversee  you oganization's workforce  effectively.</p>
