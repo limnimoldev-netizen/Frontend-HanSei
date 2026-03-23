@@ -1,7 +1,7 @@
 <template>
 
 <nav class="w-full bg-primary h-screen flex">
-            <div class="w-[500px] h-screen bg-white border-r-2 border-gray-300">
+            <div class="w-[500px] h-screen bg-white ">
                 <div class="w-[80px] h-[90px] "> <img src="/../app/assets/logo-company.png" alt="" class="w-[100%] h-[100%] ml-[30px] pt-[20px]"></div>
                 <div class="flex flex-col mt-[100px]">
                         <span class="text-lg text-gray-500 ml-[20px] ">Main Menu</span>
@@ -92,7 +92,7 @@
 
                 
             </div>
-            <div class="w-full h-screen bg-secondary">
+            <div class="w-full h-screen bg-white">
                     <div class="bg-primary w-full h-[80px] flex flex-ro justify-between items-center ">
                             <div class="w-[400px] h-[50px] bg-white ml-[20px] rounded-lg flex  items-center">
                                 <Icon name="mdi:magnify" class="text-3xl ml-[20px] text-gray-500 " /> <span class="ml-[20px] text-gray-500"><input type="text" placeholder="Search or type a command" class="outline-none"></span>
@@ -105,12 +105,12 @@
                                     <Icon name="mdi:bell-outline" class="text-3xl text-white" />
                                 </div>
                                 <div class=" w-[55px] h-[55px] rounded-4xl bg-white flex  justify-center items-center ml-[20px]">
-                                    <Icon name="mdi:account-outline" class="text-3xl" />
+                                    <NuxtLink to="/profile-page"><Icon name="mdi:account-outline" class="text-3xl" /> </NuxtLink>
                                 </div>
                                 
                             </div>
                     </div>
-                    <div class="bg-secondary w-full h-auto " >
+                    <div class="bg-white w-full min-h-screen border-l-1 border-gray-300" >
                             
                             <NuxtPage />
                         

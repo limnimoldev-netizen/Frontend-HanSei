@@ -1,18 +1,15 @@
 <script setup>
     import EmployeeTable from '../components/EmployeeTable.vue';
     import EmployeeCard from '../components/EmployeeCard.vue';
-    import EditDetail from '../components/EditDetail.vue';
+  
 
-    
 
-    
-    
 </script>
 
 
 <template>
     
-    <div class="bg-secondary font-san container banner  ">
+    <div class="bg-white font-san p-6 ">
         
         <div class="flex items-center gap-[515px]">
             
@@ -35,7 +32,7 @@
                 
                 <NuxtLink to="/AddEmployee"> 
                  
-                    <button class="flex items-center gap-2 bg-blue-500 border border-gray-200 px-4 py-2 rounded-lg text-white text-sm font-medium hover:text-gray-500 hover:bg-blue-200">
+                    <button class="flex items-center gap-2 bg-primary border border-gray-200 px-4 py-2 rounded-lg text-white text-sm font-medium hover:text-gray-500 hover:bg-blue-200">
                     
                         <Icon name="ic:outline-person-add-alt" class="text-xl" />
                         <span>Add Employee</span>

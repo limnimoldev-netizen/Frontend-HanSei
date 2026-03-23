@@ -9,7 +9,7 @@
 
 <template>
     
-    <div class="bg-secondary font-san container banner  ">
+    <div class="bg-white font-san p-6 ">
         
         <div class="">
             <h1 class="text-2xl font-semibold text-[#333] ">

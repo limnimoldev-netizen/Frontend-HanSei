@@ -276,7 +276,26 @@ const attendanceData = [
     tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
     wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
     fri: '9', sat: '10'
-  }
+  },
+  {
+    name: 'Apav Cuties',
+    position: 'Full-Stack Developer',
+    image: 'http://localhost:3000/_nuxt/assets/employyee1.png',
+    sun: '4', 
+    tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
+    wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
+    fri: '9', sat: '10'
+  },
+  {
+    name: 'Apav Cuties',
+    position: 'Full-Stack Developer',
+    image: 'http://localhost:3000/_nuxt/assets/employyee1.png',
+    sun: '4', 
+    tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
+    wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
+    fri: '9', sat: '10'
+  },
+
 ]
 
 
