@@ -2,7 +2,7 @@
   
     <div class="flex items-center gap-[20px] flex-wrap">
         
-        <div v-for="item in stats" :key="item.title"class="mt-5 rounded-xl border-2 border-gray-200 p-[18px] h-[130px] w-[240px]  ">
+        <div v-for="item in stats" :key="item.title"class="mt-5 rounded-xl border-4 border-blue-200 font-xs p-[18px] h-[130px] w-[240px]  ">
             
             <div class="flex items-center gap-[10px]">
                 
@@ -12,7 +12,7 @@
             
             </div>
 
-            <p class="text-3xl font-black text-gray-900 mt-2">{{ item.value }}</p>
+            <p class="text-3xl font-black text-primary mt-2">{{ item.value }}</p>
 
             <p class="text-sm text-gray-400 font-medium">{{ item.subtext }}</p>
 
