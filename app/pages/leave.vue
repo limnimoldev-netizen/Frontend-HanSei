@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-secondary flex ">
+  <div class="min-h-screen w-full bg-secondary flex ">
     <!-- main-content -->
      <div class="flex-2 p-6">
       <h1 class="text-2xl font-bold mb-6 text-[#333]">Leave Mangement</h1>

@@ -12,7 +12,7 @@
     <td class="p-3">{{ item.reason }}</td>
     <td class="p-3">{{ item.start_day }}</td>
     <td class="p-3">{{ item.end_day }}</td>
-    <td class="p-3">{{ item.total_day }}</td>
+    <td class="p-3">{{ item.Total_day }}</td>
    
 
   
