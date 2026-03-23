@@ -5,7 +5,7 @@
                 <div class="w-[80px] h-[90px] "> <img src="/../app/assets/logo-company.png" alt="" class="w-[100%] h-[100%] ml-[30px] pt-[20px]"></div>
                 <div class="flex flex-col mt-[100px]">
                         <span class="text-lg text-gray-500 ml-[20px] ">Main Menu</span>
-                            <nav class=" text-lg">
+                            <nav class=" text-base">
                                 <ul class="leading-15 font-san">
                                     <li>
                                     <NuxtLink to="/1" class="flex items-center gap-2 transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">
@@ -34,6 +34,13 @@
                                         
                                     </NuxtLink> 
                                     </li>
+                                    <li>
+                                    <NuxtLink to="/EmployeeSetting" class="flex items-center gap-2 transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">
+                                        <Icon name="mdi:settings" class="text-2xl ml-[20px]" />
+                                        Setting
+                                        
+                                    </NuxtLink> 
+                                    </li>
                                 </ul>
 
                                 
@@ -42,7 +49,7 @@
 
                 <div class="flex flex-col mt-[20px]">
                         <span class="text-lg text-gray-500 ml-[20px] ">Hr Management</span>
-                            <nav class=" text-lg">
+                            <nav class=" text-base">
                                 <ul class="leading-15 font-san">
                                     <li>
                                     <NuxtLink to="/employee" class="flex items-center gap-2 transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary">
@@ -60,7 +67,7 @@
                                     class="ml-[60px]  text-gray-500 text-base space-y-4"
                                     >
                                         <li>
-                                        <NuxtLink to="/attendance-report" class="transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary"> Attendance Report</NuxtLink>
+                                        <NuxtLink to="/attendance-report" class="transition duration-300 hover:text-primary hover:scale-105 text-md" active-class="text-primary"> Attendance Report</NuxtLink>
                                         </li>
                                         <li>
                                         <NuxtLink to="/attendance-salary" class="transition duration-300 hover:text-primary hover:scale-105" active-class="text-primary"> Salary Report</NuxtLink>
