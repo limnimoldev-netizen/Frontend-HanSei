@@ -1,7 +1,7 @@
 <script setup>
     import EmployeeTable from '../components/EmployeeTable.vue';
     import EmployeeCard from '../components/EmployeeCard.vue';
-  
+    import EditDetail from '../components/EditDetail.vue';
 
 
 </script>
@@ -25,16 +25,16 @@
            
             <div class="flex items-center gap-4">
                     
-                <button class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">
+                <button class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-base font-medium hover:bg-gray-50">
                         <Icon name="lucide:arrow-down-to-line" class="text-xl text-gray-500" />
                         <span>Export List</span>
                 </button>
                 
                 <NuxtLink to="/AddEmployee"> 
                  
-                    <button class="flex items-center gap-2 bg-primary border border-gray-200 px-4 py-2 rounded-lg text-white text-sm font-medium hover:text-gray-500 hover:bg-blue-200">
+                    <button class="flex items-center gap-2 bg-primary border border-gray-200 px-4 py-2 rounded-lg text-white text-base font-medium hover:text-gray-500 hover:bg-blue-200">
                     
-                        <Icon name="ic:outline-person-add-alt" class="text-xl" />
+                        <Icon name="ic:outline-person-add-alt" class="text-2xl" />
                         <span>Add Employee</span>
                     </button>
 
