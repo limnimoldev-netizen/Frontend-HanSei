@@ -13,7 +13,7 @@ defineProps({
 
   boxClasses: {
     type: String,
-    default: 'px-4 py-2 rounded-xl border border-gray-700 w-70 h-40 justify-center items-center flex shadow-2xl gap-1'
+    default: 'px-4 py-2 rounded-xl  border-4 border-primary w-60 h-30 justify-center items-center flex shadow-md gap-1'
   }
 })
 </script>
@@ -21,8 +21,8 @@ defineProps({
 <template>
  
   <div :class="['box-container', boxClasses]">
-    <h2 class="text-8xl text-green-700">{{ title }}</h2>
-    <p class="text-xl text-[#333]">{{ content }}</p>
+    <h2 class="text-5xl text-primary">{{ title }}</h2>
+    <p class=" font-bold text-[#333]">{{ content }}</p>
     <slot /> 
   </div>
 </template>

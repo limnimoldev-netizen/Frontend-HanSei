@@ -6,6 +6,7 @@
 
       <!-- Total employe leave -->
 
+
         <div class="justify-between items-center p-6 flex gap-2 w-full shadow mb-5 rounded-xl bg-secondary">
 
 
@@ -40,193 +41,51 @@
 
 
 
+
+          
+
+
+
        
 
         </div>
+
+    
 
 
       <!-- leave-table -->
        <div class="overflow-x-auto bg-sencondary shadow rounded-lg">
         <table class="min-w-full text-bold ">
           <thead>
-            <tr class="bg-[#D3D3D3] ">
+            <tr class="bg-primary text-[#ffff] font-bold text-lg">
 
-              <th class="p-6 text-left ">Employee</th>
-              <th class="p-6 text-left ">Position</th>
-              <th class="p-6 text-left ">Leave type</th>
-              <th class="p-6 text-left ">Reason</th>
-              <th class="p-6 text-left ">Start-Day</th>
-              <th class="p-6 text-left ">End-Day</th>
-              <th class="p-6 text-left ">Day</th>
-              <th class="p-6 text-left ">Action</th>
+              <th class="p-3 text-left ">Employee</th>
+              <th class="p-3 text-left ">Position</th>
+              <th class="p-3 text-left ">Leave type</th>
+              <th class="p-3 text-left ">Reason</th>
+              <th class="p-3 text-left ">Start-Day</th>
+              <th class="p-3 text-left ">End-Day</th>
+              <th class="p-3 text-left ">Day</th>
+              <th class="p-3 text-left ">Status</th>
+              <th class="p-3 text-left ">Action</th>
 
             </tr>
           </thead>
 
+
+
           <tbody>
+            
 
-            <Tablename
-           
-            name="Mony" 
-            img="https://i.pinimg.com/736x/b6/f2/cf/b6f2cfa3a24119b06a58867b469a1d37.jpg"
-            position="Frontend"
-            leavetype="Sick leave"
-            reason="Fever and headache"
-            start="2026-03-10"
-            end="2026-03-12"
-            day="3"
-            btnapprove="Aprove"
-            btnreject="Reject"
-            
-           
-            
-            
-            
+
+      
+            <LeaveTable
+              v-for="item in leaves"
+              :key="item.id"
+              :item="item"
             />
-
-            <Tablename
-           
-            name="Dane" 
-            img="https://i.pinimg.com/736x/24/fe/66/24fe669317107656da7022b7c5152c75.jpg"
-            position="Developer"
-            leavetype="Sick leave"
-            reason="To spport my heart"
-            start="10 Mar 26"
-            end="12 Mar 26"
-            day="2"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
-
-            <Tablename
-           
-            name="Lucky" 
-            img="https://i.pinimg.com/736x/54/97/52/549752276a07ccf79bb172757aa1c14c.jpg"
-            position="HR Manager"
-            leavetype="Annual Leave"
-            reason="Family vacation"
-            start="2026-03-15"
-            end="2026-03-20"
-            day="6"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
-
-
-            <Tablename
-           
-            name="Vannak Kim" 
-            img="https://i.pinimg.com/736x/54/97/52/549752276a07ccf79bb172757aa1c14c.jpg"
-            position="Backend Developer"
-            leavetype="Sick leave"
-            reason="Doctor appointmen"
-            start="2026-03-11"
-            end="2026-03-11"
-            day="1"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
-
-            <Tablename
-           
-            name="Ratha Sun" 
-            img="https://i.pinimg.com/736x/d2/26/fe/d226fe525328474e21ec1822423c50f0.jpg"
-            position="UI/UX Designer"
-            leavetype="Personal Leave"
-            reason="Personal business"
-            start="2026-03-18"
-            end="2026-03-19"
-            day="2"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
-
-
-
-            <Tablename
-           
-            name="Dara Srey" 
-            img="https://i.pinimg.com/736x/9d/43/43/9d4343c817c7e05b488ba931899fded3.jpg"
-            position="Accountant"
-            leavetype="Annual Leave"
-            reason="Travel with family"
-            start="2026-03-22"
-            end="2026-03-25"
-            day="4"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
-
-
-             <Tablename
-           
-            name="Pich Sopheak" 
-            img="https://i.pinimg.com/736x/9d/43/43/9d4343c817c7e05b488ba931899fded3.jpg"
-            position="Marketing Officer"
-            leavetype="Flu"
-            reason="To spport my heart"
-            start="10 Mar 26"
-            end="12 Mar 26"
-            day="2"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
-
-
-             <Tablename
-           
-            name="Nita Heng" 
-            img="https://i.pinimg.com/736x/9d/43/43/9d4343c817c7e05b488ba931899fded3.jpg"
-            position="Project Manager"
-            leavetype="Maternity Leave"
-            reason="Pregnancy leave"
-            start="2026-04-01"
-            end="2026-06-30"
-            day="90"
-            btnapprove="Approve"
-            btnreject="Reject"
-            
-            
-            />
-
-
 
           
-
-            
-
-
-
-
-
-  
-
-
-            
 
 
           </tbody>
@@ -242,9 +101,137 @@
 
 <script setup>
 
-import Tablename from '../components/Tablename.vue';
-import box from '../components/box.vue';
+import LeaveTable from '../components/LeaveTable.vue';
+const leaves = ref([
 
+
+  {
+    id: 1,
+    name: "Lucky",
+    position: "Manager",
+    Leavetype: "Sick Leave",
+    reason: "Fever and headache",
+    start_day: "2026-03-10",
+    end_day: "2026-03-12",
+    Total_day: 3,
+    img: "https://i.pravatar.cc/100?img=1",
+    status: "Pending"
+  },
+  {
+    id: 2,
+    name: "Mony",
+    position: "Frontend Developer",
+    Leavetype: "Annual Leave",
+    reason: "Family vacation",
+    start_day: "2026-03-15",
+    end_day: "2026-03-20",
+    Total_day: 6,
+    img: "https://i.pravatar.cc/100?img=2",
+    status: "Pending"
+  },
+  {
+    id: 3,
+    name: "Dara",
+    position: "Backend Developer",
+    Leavetype: "Sick Leave",
+    reason: "Doctor appointment",
+    start_day: "2026-03-11",
+    end_day: "2026-03-11",
+    Total_day: 1,
+    img: "https://i.pravatar.cc/100?img=3",
+    status: "Pending"
+  },
+  {
+    id: 4,
+    name: "Sokha",
+    position: "UI/UX Designer",
+    Leavetype: "Personal Leave",
+    reason: "Personal business",
+    start_day: "2026-03-18",
+    end_day: "2026-03-19",
+    Total_day: 2,
+    img: "https://i.pravatar.cc/100?img=4",
+    status: "Pending"
+  },
+  {
+    id: 5,
+    name: "Nita",
+    position: "Accountant",
+    Leavetype: "Annual Leave",
+    reason: "Travel with family",
+    start_day: "2026-03-22",
+    end_day: "2026-03-25",
+    Total_day: 4,
+    img: "https://i.pravatar.cc/100?img=5",
+    status: "Pending"
+  },
+  {
+    id: 6,
+    name: "Vannak",
+    position: "Marketing Officer",
+    Leavetype: "Sick Leave",
+    reason: "Flu",
+    start_day: "2026-03-13",
+    end_day: "2026-03-14",
+    Total_day: 2,
+    img: "https://i.pravatar.cc/100?img=6",
+    status: "Pending"
+  },
+  {
+    id: 7,
+    name: "Ratha",
+    position: "Project Manager",
+    Leavetype: "Maternity Leave",
+    reason: "Pregnancy leave",
+    start_day: "2026-04-01",
+    end_day: "2026-06-30",
+    Total_day: 90,
+    img: "https://i.pravatar.cc/100?img=7",
+    status: "Pending"
+  },
+  {
+    id: 8,
+    name: "Srey Pov",
+    position: "QA Tester",
+    Leavetype: "Personal Leave",
+    reason: "Family event",
+    start_day: "2026-03-16",
+    end_day: "2026-03-16",
+    Total_day: 1,
+    img: "https://i.pravatar.cc/100?img=8",
+    status: "Pending"
+  },
+  {
+    id: 9,
+    name: "Kosal",
+    position: "DevOps Engineer",
+    Leavetype: "Annual Leave",
+    reason: "Relaxation",
+    start_day: "2026-03-25",
+    end_day: "2026-03-28",
+    Total_day: 4,
+    img: "https://i.pravatar.cc/100?img=9",
+    status: "Pending"
+  },
+  {
+    id: 10,
+    name: "Pich",
+    position: "Support Officer",
+    Leavetype: "Sick Leave",
+    reason: "Back pain",
+    start_day: "2026-03-17",
+    end_day: "2026-03-18",
+    Total_day: 2,
+    img: "https://i.pravatar.cc/100?img=10",
+    status: "Pending"
+  }
+  
+
+
+
+
+])
+import box from '../components/box.vue';
 </script>
 
 
