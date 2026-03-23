@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-secondary container banner font-sans p-10">
+  <div class=" container banner font-sans p-10">
     
     <h1 class="text-2xl font-bold text-gray-900 mb-8 px-4">Account Settings</h1>
 
     <div class="flex flex-col lg:flex-row gap-8">
       
-      <aside class="w-full lg:w-72 bg-white rounded-[30px] p-6 shadow-sm self-start">
+      <aside class="w-full lg:w-72 bg-white rounded-[30px] p-6 s self-start">
        
         <nav class="space-y-1">
           
@@ -31,7 +31,7 @@
 
         <div class="flex-1 space-y-6">
 
-            <div class="bg-white rounded-[30px] p-10 shadow-sm relative">
+            <div class="bg-white rounded-[30px] p-10  relative">
             
             <h3 class="text-lg font-bold text-gray-800 mb-8">My Profile</h3>
             
@@ -42,7 +42,7 @@
                 <img src="../assets/employeepf4.png" class="w-20 h-20 rounded-full object-cover" />
                 <div>
                     
-                    <h2 class="text-lg font-black text-gray-900">LimNi Mol</h2>
+                    <h2 class="text-lg font-black text-gray-900">Rin Vannara</h2>
                     <p class="text-sm text-gray-400 font-medium">UI/UX Designer</p>
                     <p class="text-sm text-gray-400 font-medium">Phnom Penh, Cambodia</p>
                 </div>
@@ -61,7 +61,7 @@
             </div>
 
 
-            <div class="bg-white rounded-[30px] p-10 shadow-sm relative">
+            <div class="bg-white rounded-[30px] p-10  relative">
             
                 <div class="flex justify-between items-center mb-10">
                 
@@ -87,7 +87,7 @@
             </div>
 
 
-            <div class="bg-white rounded-[30px] p-10 shadow-sm relative">
+            <div class="bg-white rounded-[30px] p-10  relative">
             
                 <div class="flex justify-between items-center mb-10">
                     <h3 class="text-xl font-bold text-gray-800">Address</h3>
@@ -116,7 +116,7 @@
                 
                 <NuxtLink to="/profile-page">
                     
-                    <button class="bg-[#1440b8] text-white px-12 py-4 rounded-2xl font-black shadow-lg shadow-blue-100 hover:bg-blue-400 ">
+                    <button class="bg-primary text-white px-12 py-4 rounded-2xl font-black  shadow-blue-100 hover:bg-blue-400 ">
                         Save All Changes
                     </button>
                 </NuxtLink>
@@ -136,9 +136,9 @@
 const menuLinks = ['My Profile', 'Password & Security', 'Teams', 'Team Member', 'Notifications', 'Billing', 'Data Export']
 
 const profileData = {
-  "First Name": "LimNi",
-  "Last Name": "Mol",
-  "Email Address": "limnimol@hansei.com",
+  "First Name": "Rin",
+  "Last Name": "Vannara",
+  "Email Address": "rin.vannara@hansei.com",
   "Phone": "+855 12 345 678",
   "Bio": "UI/UX Designer"
 }

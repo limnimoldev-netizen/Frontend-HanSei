@@ -1,7 +1,7 @@
 <template>
 
   
-    <div class="p-8 bg-secondary banner container font-sans">
+    <div class="p-8 banner container font-sans">
 
         
         
@@ -22,7 +22,7 @@
           <div class="w-full lg:w-1/3">
                   
                   
-            <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center">                    
+            <div class="bg-white border border-gray-100 rounded-3xl p-8  flex flex-col items-center text-center">                    
                       
                 <div class="relative">                                                
                   <img src="../assets/employeepf4.png" class="w-32 h-32 rounded-full object-cover border-4 border-blue-50 shadow-md" />
@@ -56,7 +56,7 @@
 
               <div class="flex-1 space-y-6">
                 
-                  <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+                  <div class="bg-white border border-gray-100 rounded-3xl p-8 ">
                       
                       <div class="flex items-center justify-between mb-6">
                       
@@ -101,24 +101,24 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                   
-                    <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl">
+                    <div class="bg-blue-50 border border-blue-100 p-6 rounded-[10px]">
                       
-                      <p class="text-blue-600 text-xs font-bold ">Work Days</p>
-                      <p class="text-2xl font-black text-blue-900 mt-1">220</p>
+                      <p class="text-blue-600 text-sm font-bold ">Work Days</p>
+                      <p class="text-3xl font-black text-blue-900 mt-1">220</p>
                       
                     </div>
 
-                    <div class="bg-purple-50 border border-purple-100 p-6 rounded-2xl">
+                    <div class="bg-purple-50 border border-purple-100 p-6 rounded-[10px]">
                       
-                      <p class="text-purple-600 text-xs font-bold ">Leave Days</p>
-                      <p class="text-2xl font-black text-purple-900 mt-1">12</p>
+                      <p class="text-purple-600 text-sm font-bold ">Leave Days</p>
+                      <p class="text-3xl font-black text-purple-900 mt-1">12</p>
                     </div>
 
 
-                    <div class="bg-orange-50 border border-orange-100 p-6 rounded-2xl">
+                    <div class="bg-orange-50 border border-orange-100 p-6 rounded-[10px]">
                       
-                      <p class="text-orange-600 text-xs font-bold ">Late Entries</p>
-                      <p class="text-2xl font-black text-orange-900 mt-1">05</p>
+                      <p class="text-orange-600 text-sm font-bold ">Late Entries</p>
+                      <p class="text-3xl font-black text-orange-900 mt-1">05</p>
                     </div>
 
                 </div>
@@ -130,7 +130,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
       
-              <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+              <div class="bg-white border border-gray-100 rounded-3xl p-8 ">
                 
                   <h3 class="text-xl font-bold text-gray-800 mb-6">Expertise</h3>
                   
@@ -144,7 +144,7 @@
 
               </div>
 
-              <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+              <div class="bg-white border border-gray-100 rounded-3xl p-8 ">
                 
                   <div class="flex items-center justify-between mb-4">
                     
@@ -161,7 +161,7 @@
 
             </div>
 
-            <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm mt-6">
+            <div class="bg-white border border-gray-100 rounded-3xl p-8  mt-6">
                 
               <h3 class="text-xl font-bold text-gray-800 mb-6">Recent Activity</h3>
                 
