@@ -37,7 +37,7 @@ const totalSalary = computed(() => {
         </div>
 
         <div>
-          <label class="block text-sm font-medium">Attendance Days</label>
+          <label class="block text-sm font-medium">Attendance Day</label>
           <input
             v-model.number="attendance"
             type="number"
