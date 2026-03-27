@@ -8,7 +8,7 @@
             <thead class="bg-primary border-b border-gray-100 text-[#ffff]  text-sm  font-bold">
                 
                 <tr>
-                    <th class="p-4">Employee Name</th>
+                    <th class="p-4">Employee Name </th>
                     <th class="p-4 text-center">Date</th>
                     <th class="p-4 text-center">Check In</th>
                     <th class="p-4 text-center">Check Out</th>
