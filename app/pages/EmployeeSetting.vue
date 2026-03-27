@@ -39,7 +39,7 @@
                 
                 <div class="flex items-center gap-6">
                 
-                <img src="../assets/employeepf4.png" class="w-20 h-20 rounded-full object-cover" />
+                <img src="https://i.pinimg.com/474x/03/de/cf/03decfe1c4ed0c4bba15751a67ed23b3.jpg" class="w-20 h-20 rounded-full object-cover" />
                 <div>
                     
                     <h2 class="text-lg font-black text-gray-900">Rin Vannara</h2>
