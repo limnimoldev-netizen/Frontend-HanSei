@@ -2,5 +2,8 @@
 
 
 
+hello
+
+
 </template>
 
