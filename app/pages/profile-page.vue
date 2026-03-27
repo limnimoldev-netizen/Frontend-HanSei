@@ -25,11 +25,11 @@
             <div class="bg-white border border-gray-100 rounded-3xl p-8  flex flex-col items-center text-center">                    
                       
                 <div class="relative">                                                
-                  <img src="../assets/employeepf4.png" class="w-32 h-32 rounded-full object-cover border-4 border-blue-50 shadow-md" />
+                  <img src="../assets/employyee1.png" class="w-32 h-32 rounded-full object-cover border-4 border-blue-50 shadow-md" />
                                 
                 </div>
                 
-                <h2 class="mt-4 text-xl font-bold text-gray-800">LimNi Mol</h2>
+                <h2 class="mt-4 text-xl font-bold text-gray-800">VannaRa Rin</h2>
                 <p class="text-sm text-gray-400 font-medium mb-6">UI/UX Designer</p>
                                   
                 <div class="w-full border-t border-gray-100 pt-6 flex flex-col gap-4">                      
@@ -74,7 +74,7 @@
                           
                           <p class="text-base text-gray-400  font-black  mb-1">Email Address</p>
                           
-                          <p class="text-sm font-medium text-gray-700">limnimol@hansei.com</p>
+                          <p class="text-sm font-medium text-gray-700">vannara.rin@hansei.com</p>
                         </div>
 
                         <div>

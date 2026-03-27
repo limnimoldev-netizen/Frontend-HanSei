@@ -1,62 +1,72 @@
-<template>
+
+    <template>
+
     
-        <div class="flex items-center mt-8 gap-[85px]">
+        <div class="flex items-center gap-[32px] flex-wrap">
             
-            <div class="  rounded-md border-4 border-blue-300 p-[22px] border-2 h-[145px] w-[255px] boder-[#333]">
-                    
-                <div class="flex items-center items-center text-gray-500  gap-[10px]">
-                            
-                    <Icon name="mdi:account-group" class=" text-[#333] text-3xl " />
-                    <p class="font-medium  text-[#333] text-base"> Total Employees</p>
-                        
-                </div>
-
-                <p class="font-bold text-primary text-5xl   "> 134 </p>
-                <p class=" text-green-600 mt-2 ">+3 <span class=" text-gray-500">From last month</span></p>
-                    
-            </div>
-
-            <div class=" mt-2 rounded-md border-4 border-blue-300 p-[22px] border-2 h-[145px] w-[255px] boder-[#333]">
-                    
-                <div class="flex items-center text-gray-500  gap-[10px]">
-                            
-                    <Icon name="mdi:account-plus" class="  text-[#333] text-3xl " />
-                    <p class="font-medium  text-[#333] text-base"> New Hires This Month</p>
-                        
-                </div>
-
-                <p class="font-bold text-5xl text-primary "> 5 </p>
-                <p class=" text-green-600 mt-2 ">+2 <span class="text-gray-500">From last month</span></p>
-                    
-                    
-            </div>
-
-            <div class=" mt-2 rounded-md border-4 border-blue-300 p-[22px] h-[145px] w-[255px] boder-[#333]">
-                    
-                <div class="flex items-center text-gray-500  gap-[10px]">
-                            
-                    <Icon name="mdi:briefcase-variant" class="text-[#333] text-3xl " />
-                    <p class="font-medium text-[#333] text-base"> Average Tenure</p>
-                        
-                </div>
-
-                <p class="font-bold text-primary text-5xl "> 28 </p>
-                <p class=" text-green-600 mt-2 ">1.2% <span class="text-gray-500">From last year</span></p>
-                    
-            </div>
+            <div v-for="item in stats" :key="item.title"class="mt-5 rounded-xl border-4 border-blue-200 font-xs p-[18px] h-[130px] w-[240px]  ">
                 
-            <div class=" mt-2 rounded-md border-4 border-blue-300 p-[22px]  h-[145px] w-[255px] boder-[#333]">
+                <div class="flex items-center gap-[10px]">
                     
-                <div class="flex items-center text-gray-500  gap-[10px]">
-                            
-                    <Icon name="mdi:account-settings-variant" class="text-[#333] text-3xl " />
-                    <p class="font-medium text-[#333] text-base">Active Department</p>
-                        
+                    <Icon :name="item.icon" class="text-2xl text-gray-700" />
+                    
+                    <p class="font-medium text-lg text-gray-800">{{ item.title }}</p>
+                
                 </div>
 
-                <p class="font-bold text-5xl text-primary "> 134 </p>
-                <p class=" text-red-600 mt-2 ">-1 <span class="text-gray-500">From last year</span></p>
+                <p class="text-3xl font-black text-primary mt-2">{{ item.value }}</p>
+
+                <p class="text-sm text-gray-400 font-medium">
                     
-            </div>    
+                    <span class="text-base text-green-500 font-medium">{{ item.subnum }}</span>
+                    <span class="text-base text-red-500 font-medium">{{ item.subnumcut }}</span>
+
+                             
+                {{ item.subtext }}</p>
+                
+
+
+            </div>
+
         </div>
-</template>
+
+    </template>
+
+    <script setup>
+
+    const stats = [
+
+
+    { title: 'Total Employee', 
+        value: '134', 
+        subtext: ' From last month', 
+        subnum: '+3 ',
+        icon: 'mdi:account-group' },
+
+    { title: 'New Hires ', 
+        value: '5', 
+        subtext: 'From last month', 
+        subnum: '+2 ',
+        icon: 'mdi:account-plus' },
+
+
+    { title: 'Average Tenure', 
+        value: '28', 
+        subtext: 'From last year', 
+        subnum: '1.2%  ',
+
+        icon: 'mdi:briefcase-variant' },
+
+
+    { title: 'Active Department', 
+        value: '134', 
+        subtext: ' From last year', 
+        subnumcut: '-1  ',
+
+        icon: 'mdi:account-settings-variant' }
+
+
+    ]
+
+
+    </script> 

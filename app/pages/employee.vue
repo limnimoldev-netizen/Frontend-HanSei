@@ -11,7 +11,7 @@
     
     <div class="bg-white font-san p-6 ">
         
-        <div class="flex items-center gap-[515px]">
+        <div class="flex items-center gap-[260px]">
             
             <div class="">
                 

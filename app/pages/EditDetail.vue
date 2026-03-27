@@ -12,10 +12,10 @@
             
                 <div class="flex items-center gap-6 mb-8 pb-6">
                     
-                    <img src="../assets/employeepf2.png" class="w-20 h-20 rounded-full object-cover  " />
+                    <img src="../assets/employeepf3.png" class="w-20 h-20 rounded-full object-cover  " />
                     
                     <div class="flex-1">
-                        <h2 class="text-2xl font-bold text-gray-800">Bessie Cooper</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">LimNi Mol</h2>
                     </div>
 
                     <button class="border-2 border-gray-200 px-4 py-1.5 rounded-xl text-sm font-bold hover:bg-gray-50">
@@ -29,7 +29,7 @@
                     <div class="col-span-2">
                     
                         <p class="text-lg text-gray-400   mb-1">Name</p>
-                        <input type="text" value="Bessie Cooper" class="w-full border-b-2 border-gray-100 py-2 outline-none  font-medium">
+                        <input type="text" value="Lim Nimol" class="w-full border-b-2 border-gray-100 py-2 outline-none  font-medium">
                 
                     </div>
 
