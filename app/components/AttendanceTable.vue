@@ -5,7 +5,7 @@
         
         <table class="w-full text-left border-collapse">
             
-            <thead class="bg-gray-50 border-b border-gray-100 text-gray-400 text-sm  font-bold">
+            <thead class="bg-primary border-b border-gray-100 text-[#ffff]  text-sm  font-bold">
                 
                 <tr>
                     <th class="p-4">Employee Name</th>
