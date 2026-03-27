@@ -86,16 +86,16 @@
         </div>
       </section>
 
-      <section class="grid grid-cols-1 w-full lg:grid-cols-3 gap-8">
+      <section class=" ">
         
-        <div class="lg:col-span-2  w-[1200px] bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
           <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
             <h3 class="font-black text-slate-800 uppercase tracking-tight">Employee Check-in Feed</h3>
             <button class="text-primary text-xs font-bold hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-colors">VIEW ALL RECORDS</button>
           </div>
           
           <div class="overflow-x-auto">
-            <table class="w-full text-left">
+            <table class=" w-full text-left">
               <thead>
                 <tr class="text-slate-700 text-base uppercase font-black border-b border-slate-100">
                   <th class="px-8 py-4">Employee</th>

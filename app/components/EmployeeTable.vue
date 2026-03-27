@@ -1,8 +1,8 @@
 <template>
     
-    <div class="mt-6 bg-white border border-gray-200 rounded-2xl  overflow-visible font-san">
+    <div class="mt-6 bg-white border border-gray-200 font-san rounded-lg shadow-xs overflow-hidden">
         
-        <div class="bg-primary border-b  flex items-center text-[#FFFF] text-base font-black  px-6 py-5">
+        <div class="bg-primary  flex items-center text-[#FFFF] text-sm font-black font-bold  px-6 py-5">
             
             <div class="w-10">
                 <input type="checkbox" @change="toggleAll" :checked="isAllSelected" class="w-4 h-4 rounded border-gray-300 text-blue-600  " />
