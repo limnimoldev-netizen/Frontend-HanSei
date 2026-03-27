@@ -4,7 +4,6 @@
     import AttendanceFilter from '../components/AttendanceFilter.vue';
     import AttendanceTable from '../components/AttendanceTable.vue';
 
-
 </script>
 
 <template>
@@ -18,13 +17,9 @@
             <p class=" text-[#4d4d4d]">Analyse attendance records of employee</p>
         </div>
 
-        
         <AttendanceCard />
         <AttendanceFilter />
-        
         <AttendanceTable />
-
-
     </div>
 
 
