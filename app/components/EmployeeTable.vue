@@ -57,7 +57,7 @@
 
                     <div v-if="activeMenu === index" class="absolute right-12 top-0 w-48 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 py-2 text-left animate-in fade-in slide-in-from-right-2 duration-200">
                         
-                        <NuxtLink to="/employeeprofile" class="w-full flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 transition-colors"@click="activeMenu = null">
+                        <NuxtLink to="/profile-page" class="w-full flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 transition-colors"@click="activeMenu = null">
                             
                             <Icon name="lucide:eye" class="text-sm text-gray-400" />
                             <span class="font-bold text-[13px]">View Profile</span>

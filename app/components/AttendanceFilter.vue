@@ -32,21 +32,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-2 mt-4"> 
-            
-            <div v-for="tag in ['Leave', 'Absent', 'Active']" :key="tag" 
-                class="flex items-center gap-2 bg-gray-100 border border-gray-200 px-3 py-1 rounded-md text-sm font-medium text-gray-600">
-                
-                <span>{{ tag }}</span>
-                
-                <button class="hover:text-red-500">  
-                    <Icon name="radix-icons:cross-2" class="text-[10px]" />
-                
-                </button>
-            
-            </div>
-
-        </div> 
+        
   </div>
   
 </template>

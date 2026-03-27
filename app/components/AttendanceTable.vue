@@ -1,5 +1,5 @@
 
-<!-- <template>
+<template>
   
     <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
         
@@ -166,84 +166,8 @@
 
     </div>
 
-</template> -->
-
-<template>
-    
-    <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
-        
-        <table class="w-full text-left border-collapse">
-           
-            <thead class="bg-gray-50 border-b border-gray-100 text-gray-400 text-sm font-bold">
-           
-                <tr>
-                    <th class="p-4">Employee</th>
-                    <th v-for="day in days" :key="day" class="p-4 text-center">{{ day }}</th>
-                </tr>
-            </thead>
-
-            <tbody class="text-sm divide-y divide-gray-100">
-                
-                <tr v-for="(emp, index) in attendanceData" :key="index" class="hover:bg-gray-50 transition-colors">
-                
-                    <td class="p-4 flex items-center gap-3">
-                        <img :src="emp.image" class="w-12 h-12 rounded-full object-cover border border-gray-100" />
-                        
-                        <div>
-                            <p class="font-bold text-gray-800">{{ emp.name }}</p>
-                            <p class="text-[10px] text-gray-400 font-medium uppercase">{{ emp.position }}</p>
-                        </div>
-                    </td>
-
-                    <td class="p-4 text-center text-gray-400 font-medium">{{ emp.sun }}</td>
-
-                    <td class="p-4">
-                    
-                        <div class="flex justify-center">
-                        
-                            <span class="bg-green-50 text-green-600 border border-green-100 px-2 py-1 rounded-full flex items-center gap-1 text-[11px] font-bold min-w-[85px] justify-center">
-                                <Icon name="line-md:circle-twotone-to-confirm-circle-transition" class="text-sm" /> 8 Hours
-                            </span>
-                        </div>
-                    </td>
-
-                    <td class="p-4">
-                        
-                        <div class="flex justify-center">
-                            <span :class="emp.tueStyle" class="px-2 py-1  border rounded-full  flex items-center gap-1 text-[11px] font-bold min-w-[85px] justify-center">
-                                <Icon :name="emp.tueIcon" class="text-sm" /> {{ emp.tue }}
-                            </span>
-                        </div>
-                    </td>
-
-                    <td class="p-4">
-                        
-                        <div class="flex justify-center">
-                            <span :class="emp.wedStyle" class="px-2 py-1 rounded border flex items-center gap-1 text-[11px] font-bold min-w-[85px] justify-center">
-                                <Icon :name="emp.wedIcon" class="text-sm" /> {{ emp.wed }}
-                            </span>
-                        </div>
-                    </td>
-
-                    <td class="p-4">
-                    
-                        <div class="flex justify-center">
-                            <span class="bg-green-50 text-green-500 border border-green-100 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide">
-                                Active
-                            </span>
-                        </div>
-                    </td>
-
-                    <td class="p-4 text-center text-gray-400 font-medium">{{ emp.fri }}</td>
-                    <td class="p-4 text-center text-gray-400 font-medium">{{ emp.sat }}</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-    </div>
-
 </template>
+
 
 <script setup>
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
