@@ -1,17 +1,15 @@
 <script setup>
-// This ensures the sidebar layout is NOT shown on this page
-definePageMeta({
-  layout: false,
-});
+import { ref } from 'vue';
+import { useRouter, useCookie } from '#imports';
 
 const router = useRouter();
-// Cookie for the security token
-const tokenCookie = useCookie('auth_token', { maxAge: 60 * 60 * 24 }); 
-// Cookie for the user's profile info (Full Name, etc.)
+
+// Cookies for token and user info
+const tokenCookie = useCookie('auth_token', { maxAge: 60 * 60 * 24 });
 const userDataCookie = useCookie('user_data', { maxAge: 60 * 60 * 24 });
 
 const form = ref({
-  username: '', // Changed from user_id to username to match your table
+  username: '',
   password: ''
 });
 
@@ -23,29 +21,31 @@ const handleLogin = async () => {
   errorMessage.value = '';
 
   try {
-    // Replace with your actual Laravel API URL
-    const response = await $fetch('http://localhost:8000/api/login', {
+    const res = await $fetch('http://127.0.0.1:8000/api/login', {
       method: 'POST',
       body: form.value,
     });
 
-    // 1. Save the token returned from Laravel Sanctum
-    tokenCookie.value = response.access_token;
+    // Save the Sanctum token in a cookie
+    tokenCookie.value = res.access_token;
 
-    // 2. Save the user object (this includes full_name and username for the sidebar)
-    userDataCookie.value = response.user;
+    // Save user info in a cookie
+    userDataCookie.value = res.user;
 
-    // 3. Go to the dashboard/home page
+    // Redirect to dashboard/home
     router.push('/');
-  } catch (error) {
-    errorMessage.value = 'Invalid Username or Password. Please try again.';
-    console.error('Login error:', error);
+  } catch (err) {
+    console.error('Login error:', err);
+    if (err?.data?.message) {
+      errorMessage.value = err.data.message;
+    } else {
+      errorMessage.value = 'Invalid username or password';
+    }
   } finally {
     loading.value = false;
   }
 };
 </script>
-
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100 p-6 font-sans">
     <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">

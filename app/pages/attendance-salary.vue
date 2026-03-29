@@ -1,84 +1,65 @@
 <script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { useCookie } from '#imports';
 
+const tokenCookie = useCookie('auth_token');
 const selectedEmployee = ref(null);
+const employees = ref([]); // Starts empty, filled by API
+const loading = ref(false);
+const error = ref(null);
 
-
-const employees = ref([
-  {
-    id: 1,
-    name: 'Chan Samang',
-    role: 'Senior Web Developer',
-    department: 'Engineering',
-    joinedDate: 'Jan 2024',
-    email: 'samang.dev@company.com',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Samang',
-    stats: {
-      month: 'March 2026',
-      baseSalary: 2800,
-      overtimePay: 240,
-      allowances: 120,
-      deductions: 450,
-      totalHours: 172
-    }
-  },
-  {
-    id: 2,
-    name: 'Sokha Devi',
-    role: 'Lead Designer',
-    department: 'Creative',
-    joinedDate: 'Mar 2023',
-    email: 'devi.design@company.com',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Devi',
-    stats: {
-      month: 'March 2026',
-      baseSalary: 2500,
-      overtimePay: 0,
-      allowances: 100,
-      deductions: 380,
-      totalHours: 160
-    }
-  },
+// Fetch data from your Laravel Backend
+const loadPayrollData = async () => {
+  loading.value = true;
+  error.value = null;
   
-   {
-    id: 2,
-    name: 'Sokha Devi',
-    role: 'Lead Designer',
-    department: 'Creative',
-    joinedDate: 'Mar 2023',
-    email: 'devi.design@company.com',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Devi',
-    stats: {
-      month: 'March 2026',
-      baseSalary: 2500,
-      overtimePay: 0,
-      allowances: 100,
-      deductions: 380,
-      totalHours: 160
+  try {
+    const response = await axios.get('http://127.0.0.1:8000/api/attendance-reports', {
+      headers: { 
+        'Authorization': `Bearer ${tokenCookie.value}`,
+        'Accept': 'application/json'
+      }
+    });
+
+    // Map the Laravel data to your UI structure
+    const rawData = response.data.data || response.data;
+    
+    if (Array.isArray(rawData)) {
+      employees.value = rawData.map(r => ({
+        id: r.id,
+        name: r.user ? `${r.user.first_name} ${r.user.last_name}` : 'Unknown User',
+        role: r.user?.position?.name || 'Staff',
+        department: r.user?.department?.name || 'General',
+        joinedDate: r.user?.created_at ? new Date(r.user.created_at).toLocaleDateString() : 'N/A',
+        email: r.user?.email || 'N/A',
+        avatar: r.user?.profile_picture || `https://api.dicebear.com/7.x/avataaars/svg?seed=${r.id}`,
+        stats: {
+          month: 'March 2026',
+          baseSalary: parseFloat(r.user?.salary || 0), 
+          overtimePay: parseFloat(r.overtimes || 0) * 15, // Change 15 to your hourly rate
+          allowances: 100,
+          deductions: (parseInt(r.total_absent || 0) * 20) + (parseInt(r.total_lates || 0) * 5),
+          totalHours: r.total_month_hour || 0
+        }
+      }));
     }
-  },
-   {
-    id: 2,
-    name: 'Sokha Devi',
-    role: 'Lead Designer',
-    department: 'Creative',
-    joinedDate: 'Mar 2023',
-    email: 'devi.design@company.com',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Devi',
-    stats: {
-      month: 'March 2026',
-      baseSalary: 2500,
-      overtimePay: 0,
-      allowances: 100,
-      deductions: 380,
-      totalHours: 160
-    }
-  },
-]);
+  } catch (err) {
+    console.error("API Error:", err);
+    error.value = "Failed to load payroll data. Please check your connection.";
+  } finally {
+    loading.value = false;
+  }
+};
 
 const getNetPay = (emp) => {
+  if (!emp || !emp.stats) return 0;
   const s = emp.stats;
   return (s.baseSalary + s.overtimePay + s.allowances) - s.deductions;
 };
+
+// Run the fetch when the component is ready
+onMounted(loadPayrollData);
 </script>
 
 <template>
@@ -95,7 +76,15 @@ const getNetPay = (emp) => {
         </div>
       </header>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-if="loading" class="text-center py-20 text-slate-400 animate-pulse font-bold uppercase tracking-widest">
+        Loading Payroll Records...
+      </div>
+
+      <div v-else-if="error" class="bg-red-50 border border-red-100 p-6 rounded-2xl text-red-600 text-center">
+        {{ error }}
+      </div>
+
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="emp in employees" :key="emp.id" 
              @click="selectedEmployee = emp"
              class="group bg-white border border-slate-200 p-6 rounded-2xl hover:border-primary transition-all cursor-pointer shadow-sm hover:shadow-md">

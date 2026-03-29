@@ -1,97 +1,53 @@
 <template>
-  <tr class="border-2 border-gray-200 bg-secondary text-sm  w-full">
-
-    <!-- Profile -->
-    <td class="p-3 flex items-center">
-      <img :src="item.img" class="w-15 h-15 rounded-full object-cover  p-1.5" />
-      <p class="p-3 font-medium">{{ item.name }}</p>
+  <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+    <td class="p-4">
+      <div class="flex items-center gap-3">
+        <img :src="item.user?.profile_picture || 'https://i.pravatar.cc/100?img=3'" class="w-10 h-10 rounded-full border" />
+        <span class="font-bold text-slate-700">{{ item.user?.name || 'User ' + item.user_id }}</span>
+      </div>
     </td>
 
-    <td class="p-3">{{ item.position }}</td>
-    <td class="p-3">{{ item.Leavetype }}</td>
-    <td class="p-3">{{ item.reason }}</td>
-    <td class="p-3">{{ item.start_day }}</td>
-    <td class="p-3">{{ item.end_day }}</td>
-    <td class="p-3">{{ item.Total_day }}</td>
-   
+    <td class="p-4 text-sm font-semibold text-blue-600 uppercase">{{ item.leave_type }}</td>
+    
+    <td class="p-4 text-sm text-slate-500 italic">"{{ item.reason }}"</td>
 
-  
-    <td class="p-3 justify-center">
-      <span class="px-2 py-1 rounded-full text-sm"
+    <td class="p-4 text-sm">{{ item.start_date }}</td>
+    <td class="p-4 text-sm">{{ item.end_date }}</td>
+
+    <td class="p-4 text-center font-bold text-primary">{{ item.total_days }}</td>
+
+    <td class="p-4 text-center">
+      <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase border"
         :class="{
-          'bg-green-100 text-green-600': item.status === 'Approved',
-          'bg-red-100 text-red-600': item.status === 'Rejected',
-          'bg-yellow-100 text-yellow-600': item.status === 'Pending'
+          'bg-orange-50 text-orange-600 border-orange-100': item.status === 'pending',
+          'bg-emerald-50 text-emerald-600 border-emerald-100': item.status === 'approved',
+          'bg-rose-50 text-rose-600 border-rose-100': item.status === 'rejected'
         }">
         {{ item.status }}
       </span>
     </td>
 
-    <td class="p-4 gap-2">
-
-      <button
-        @click="handleApprove"
-        :disabled="item.status === 'Approved' || loading"
-        class="bg-green-50 text-green-600 px-3 py-1 rounded-lg font-bold transition hover:bg-green-600 hover:text-white disabled:opacity-50 "
-      >
-        <Icon name="material-symbols:check-rounded" class="text-sm " /> <span class="justify-center items-center ">Approve</span>
-      </button>
-
-      <button
-        @click="handleReject"
-        :disabled="item.status === 'Rejected' || loading"
-        class="bg-red-50 text-red-600 px-3 py-1 rounded-lg font-bold transition hover:bg-red-600 hover:text-white disabled:opacity-50 "
-      >
-        <Icon name="material-symbols:close-small-outline" class="text-sm" /> <span>Reject</span> 
-      </button>
-
+    <td class="p-4 text-right">
+      <div v-if="item.status === 'pending'" class="flex gap-2 justify-end">
+        <button @click="updateStatus('approved')" class="bg-emerald-50 text-emerald-600 px-3 py-1 rounded-lg font-bold text-xs border border-emerald-100 hover:bg-emerald-600 hover:text-white transition">Approve</button>
+        <button @click="updateStatus('rejected')" class="bg-rose-50 text-rose-600 px-3 py-1 rounded-lg font-bold text-xs border border-rose-100 hover:bg-rose-600 hover:text-white transition">Reject</button>
+      </div>
     </td>
   </tr>
 </template>
 
-
 <script setup>
-import { ref } from 'vue'
+import axios from 'axios';
+const props = defineProps({ item: Object });
+const emit = defineEmits(['refresh']);
 
-const props = defineProps({
-  item: Object
-})
-
-const loading = ref(false)
-
-
-async function handleApprove() {
-  if (!confirm("Are you sure to approve this leave?")) return
-
-  loading.value = true
-  props.item.status = "Approved"
-
-  await updateLeave()
-  loading.value = false
+async function updateStatus(newStatus) {
+  try {
+    // Sends the PUT request to Laravel
+    await axios.put(`http://127.0.0.1:8000/api/leaves/${props.item.id}`, { status: newStatus });
+    emit('refresh'); // Refresh the table
+  } catch (error) {
+    alert("Database update failed");
+  }
 }
-
-
-async function handleReject() {
-  if (!confirm("Are you sure to reject this leave?")) return
-
-  loading.value = true
-  props.item.status = "Rejected"
-
-  await updateLeave()
-  loading.value = false
-}
-
-
-// async function updateLeave() {
-//   try {
-//     await $fetch(`http://127.0.0.1:8000/api/leaves/${props.item.id}`, {
-//       method: "PUT",
-//       body: {
-//         status: props.item.status
-//       }
-//     })
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
 </script>

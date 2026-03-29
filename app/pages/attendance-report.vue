@@ -1,36 +1,105 @@
-<script setup>
+this code work <script setup>
+import { ref, onMounted } from 'vue';
+import { useCookie } from '#imports';
+
+// Cookies for authentication
+const tokenCookie = useCookie('auth_token');
+const userDataCookie = useCookie('user_data');
+
 const selectedStaff = ref(null);
+const employees = ref([]);
+const loading = ref(false);
 
-const employees = ref([
-  {
-    id: 1,
-    name: 'Chan Samang',
-    role: 'Senior Web Developer',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Samang',
-    month: 'March 2026',
-    // Summary Data
-    summary: {
-      totalDays: 22,
-      daysWorked: 20,
-      weeklyAvg: 42, // Hours per week
-      monthlyHours: 168,
-      targetHours: 160,
-    },
-    // Daily Logs for the specific month
-    dailyLogs: [
-      { date: 'Mon, Mar 16', in: '08:00 AM', out: '05:30 PM', duration: '9h 30m', status: 'On Time' },
-      { date: 'Tue, Mar 17', in: '08:15 AM', out: '05:15 PM', duration: '9h 00m', status: 'Late' },
-      { date: 'Wed, Mar 18', in: '07:55 AM', out: '05:05 PM', duration: '9h 10m', status: 'On Time' },
-    ]
-  }
-]);
+// Format a timestamp to HH:MM:SS or '--:--:--'
+const formatTime = (time) => {
+  if (!time) return '--:--:--';
+  return new Date(time).toLocaleTimeString('en-US', { hour12: false });
+};
 
+// Styling for status
 const getStatusStyle = (status) => {
   if (status === 'On Time') return 'text-emerald-600 bg-emerald-50 border-emerald-100';
-  return 'text-amber-600 bg-amber-50 border-amber-100';
+  if (status === 'Late') return 'text-amber-600 bg-amber-50 border-amber-100';
+  return 'text-slate-500 bg-slate-50 border-slate-100';
 };
-</script>
 
+// Auth headers for API
+const getAuthHeaders = () => ({
+  Accept: 'application/json',
+  Authorization: `Bearer ${tokenCookie.value}`
+});
+
+// Load employees + attendance data
+const loadEmployees = async () => {
+  if (!tokenCookie.value) return;
+
+  loading.value = true;
+
+  try {
+    // 1️⃣ Fetch all users
+    const users = await $fetch('http://127.0.0.1:8000/api/user', {
+      headers: getAuthHeaders()
+    });
+
+    // 2️⃣ Fetch all attendance records once
+    const attendances = await $fetch('http://127.0.0.1:8000/api/attendance', {
+      headers: getAuthHeaders()
+    });
+
+    // 3️⃣ Map users into employee objects with logs & summary
+    employees.value = users.map(user => {
+      const userLogsRaw = attendances.filter(a => a.user_id === user.id);
+
+      const dailyLogs = userLogsRaw.map(a => {
+        const checkIn = a.check_in ? new Date(a.check_in) : null;
+        const checkOut = a.check_out ? new Date(a.check_out) : null;
+
+        let hours = 0;
+        if (checkIn && checkOut) hours = (checkOut - checkIn) / 1000 / 3600;
+
+        return {
+          date: checkIn ? checkIn.toDateString() : '--',
+          in: formatTime(a.check_in),
+          out: formatTime(a.check_out),
+          duration: hours ? hours.toFixed(2) + 'h' : '--',
+          status: hours >= 8 ? 'On Time' : 'Late'
+        };
+      });
+
+      const totalHours = dailyLogs.reduce((sum, log) => {
+        const h = parseFloat(log.duration);
+        return sum + (isNaN(h) ? 0 : h);
+      }, 0);
+
+      // Weekly average calculation: assume 4 weeks/month
+      const weeklyAvg = (totalHours / 4).toFixed(2);
+
+      return {
+        id: user.id,
+        name: `${user.first_name} ${user.last_name}`,
+        role: user.position || 'Employee',
+        avatar: user.profile_picture || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.first_name}`,
+        month: new Date().toLocaleString('default', { month: 'long', year: 'numeric' }),
+        summary: {
+          totalDays: 22,
+          daysWorked: dailyLogs.length,
+          weeklyAvg,
+          monthlyHours: totalHours.toFixed(2),
+          targetHours: 160,
+        },
+        dailyLogs
+      };
+    });
+
+  } catch (err) {
+    console.error('Error loading employees:', err);
+  } finally {
+    loading.value = false;
+  }
+};
+
+onMounted(loadEmployees);
+</script>
 <template>
   <div class="min-h-screen bg-white p-8 font-sans text-slate-900">
     <div class="max-w-6xl mx-auto">

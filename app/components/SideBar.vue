@@ -19,8 +19,8 @@
               <ul class="space-y-1">
                 <li><NuxtLink to="/1" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary group" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:account-group" class="text-2xl" /><span>Tasks</span></NuxtLink></li>
                 <li><NuxtLink to="/2" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:calendar-check" class="text-2xl" /><span>Inbox</span></NuxtLink></li>
-                <li><NuxtLink to="/3" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:calendar-clock" class="text-2xl" /><span>Calendar</span></NuxtLink></li>
-                <li><NuxtLink to="/4" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:calendar-remove" class="text-2xl" /><span>Projects</span></NuxtLink></li>
+                <li><NuxtLink to="/time-clock" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:calendar-clock" class="text-2xl" /><span>Time-Clock</span></NuxtLink></li>
+                <li><NuxtLink to="/leaverequest" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:calendar-remove" class="text-2xl" /><span>Leave Request </span></NuxtLink></li>
                 <li><NuxtLink to="/EmployeeSetting" class="flex items-center gap-3 px-6 py-3 transition hover:bg-slate-50 hover:text-primary" active-class="text-primary bg-slate-50 font-bold border-r-4 border-primary"><Icon name="mdi:settings" class="text-2xl" /><span>Setting</span></NuxtLink></li>
               </ul>
             </nav>

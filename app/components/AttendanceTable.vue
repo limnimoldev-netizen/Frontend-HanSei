@@ -1,14 +1,87 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useCookie } from '#imports';
+
+const tokenCookie = useCookie('auth_token');
+const employees = ref([]);
+const loading = ref(false);
+
+const getAuthHeaders = () => ({
+  Accept: 'application/json',
+  Authorization: `Bearer ${tokenCookie.value}`
+});
+
+// Helper to get the LATEST log for the table display
+const getLatestLog = (emp) => {
+  if (!emp.dailyLogs || emp.dailyLogs.length === 0) {
+    return { date: 'No Record', in: '--', out: '--', duration: '--', status: 'Absent' };
+  }
+  // Returns the last log in the array
+  return emp.dailyLogs[emp.dailyLogs.length - 1];
+};
+
+const getStatusStyle = (status) => {
+  if (status === 'On Time' || status === 'Active') return 'bg-green-50 text-green-500 border-green-100';
+  if (status === 'Late') return 'bg-orange-50 text-orange-500 border-orange-100';
+  return 'bg-red-50 text-red-500 border-red-100';
+};
+
+const loadEmployees = async () => {
+  if (!tokenCookie.value) return;
+  loading.value = true;
+
+  try {
+    const users = await $fetch('http://127.0.0.1:8000/api/user', { headers: getAuthHeaders() });
+    const attendances = await $fetch('http://127.0.0.1:8000/api/attendance', { headers: getAuthHeaders() });
+
+    employees.value = users.map(user => {
+      const userLogs = attendances.filter(a => a.user_id === user.id);
+      
+      const dailyLogs = userLogs.map(a => {
+        const checkIn = a.check_in ? new Date(a.check_in) : null;
+        const checkOut = a.check_out ? new Date(a.check_out) : null;
+        let hours = 0;
+        if (checkIn && checkOut) hours = (checkOut - checkIn) / 1000 / 3600;
+
+        return {
+          date: checkIn ? checkIn.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'N/A',
+          in: a.check_in ? new Date(a.check_in).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--',
+          out: a.check_out ? new Date(a.check_out).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--',
+          duration: hours > 0 ? `${Math.floor(hours)}h:${Math.round((hours % 1) * 60)}mn` : '--',
+          status: hours >= 8 ? 'Active' : (a.check_in ? 'Late' : 'Absent')
+        };
+      });
+
+      return {
+        id: user.id,
+        name: `${user.first_name} ${user.last_name}`,
+        role: user.position || 'Employee',
+        avatar: user.profile_picture || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.id}`,
+        dailyLogs
+      };
+    });
+  } catch (err) {
+    console.error('Error:', err);
+  } finally {
+    loading.value = false;
+  }
+};
+
+onMounted(loadEmployees);
+</script>
 
 <template>
-  
-    <div class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
-        
+  <div class="p-8 bg-gray-50 min-h-screen">
+    
+    <div v-if="loading" class="text-center py-10 font-bold text-primary animate-pulse">
+      FETCHING ATTENDANCE DATA...
+    </div>
+
+    <div v-else class="mt-6 bg-white border border-gray-200 rounded-lg shadow-xs overflow-hidden">
         <table class="w-full text-left border-collapse">
-            
-            <thead class="bg-primary border-b border-gray-100 text-[#ffff]  text-sm  font-bold">
-                
+            <thead class="bg-primary border-b border-gray-100 text-[#ffff] text-sm font-bold">
                 <tr>
-                    <th class="p-4">Employee Name </th>
+                    <th class="p-4">Employee Name</th>
                     <th class="p-4 text-center">Date</th>
                     <th class="p-4 text-center">Check In</th>
                     <th class="p-4 text-center">Check Out</th>
@@ -19,208 +92,38 @@
             </thead>
 
             <tbody class="text-sm divide-y divide-gray-100">
-                
-                <tr>
+                <tr v-for="emp in employees" :key="emp.id" class="hover:bg-gray-50 transition-colors">
                     <td class="p-4 flex items-center gap-3">
-                        <img src="../assets/employeepf.png" class="w-15 h-15 rounded-full object-cover border border-gray-100" />
-                        
+                        <img :src="emp.avatar" class="w-12 h-12 rounded-full object-cover border border-gray-100" />
                         <div>
-                            <p class="font-bold text-gray-800">LimNi Mol    </p>
-                            <p class="text-[10px] text-gray-400 font-medium">UI/UX Designer</p>
+                            <p class="font-bold text-gray-800">{{ emp.name }}</p>
+                            <p class="text-[10px] text-gray-400 font-medium">{{ emp.role }}</p>
                         </div>
                     </td>
                     
-                    <td class="p-4 text-center text-gray-400 font-medium">Jan 24 2026</td>
-                    <td class="p-4 text-center text-gray-400 font-medium">9:00 Am</td>
-
-
-                     
-                    <td class="p-4 text-center text-gray-400 font-medium">4h:26mn</td>
-
-                    
-                    <td class="p-4 text-center text-gray-400 font-medium">4h:26mn</td>
-                    
+                    <td class="p-4 text-center text-gray-400 font-medium">{{ getLatestLog(emp).date }}</td>
+                    <td class="p-4 text-center text-gray-400 font-medium">{{ getLatestLog(emp).in }}</td>
+                    <td class="p-4 text-center text-gray-400 font-medium">{{ getLatestLog(emp).out }}</td>
+                    <td class="p-4 text-center text-gray-400 font-medium">{{ getLatestLog(emp).duration }}</td>
                     
                     <td class="p-4">
                         <div class="flex justify-center">
-                        <span class="bg-green-50 text-green-500 border border-green-100 px-3 py-1 rounded-full text-sm font-bold ">
-                            Active
-                        </span>
+                          <span :class="getStatusStyle(getLatestLog(emp).status)" class="px-3 py-1 rounded-full text-sm font-bold border">
+                              {{ getLatestLog(emp).status }}
+                          </span>
                         </div>
                     </td>
                     
-                    <td class="p-4 text-center ">
+                    <td class="p-4 text-center cursor-pointer hover:text-primary">
                         <Icon name="bi:three-dots-vertical" class="text-base" />
-
                     </td>
                 </tr>
-
-                <tr>
-                    <td class="p-4 flex items-center gap-3">
-                        
-                        <img src="../assets/employeepf2.png" class="w-15 h-15 rounded-full object-cover border border-gray-100" />
-                        <div>
-                            <p class="font-bold text-gray-800">Bessie Cooper</p>
-                            <p class="text-[10px] text-gray-400 font-medium">Product Designer</p>
-                        </div>
-
-                    </td>
-                    
-                    <td class="p-4 text-center text-gray-400 font-medium">Jan 24 2026</td>
-                    <td class="p-4 text-center text-gray-400 font-medium">10:40 Am</td>
-                    <td class="p-4 text-center text-gray-400 font-medium">6:44 AM</td>
-
-                
-                    <td class="p-4 text-center text-gray-400 font-medium">8h:4mn</td>
-
-                    
-                    <td class="p-4">
-                        <div class="flex justify-center">
-                        <span class="bg-orange-50 text-orange-500 border border-orange-100 px-3 py-1 rounded-full text-sm font-bold ">
-                            Late
-                        </span>
-                        </div>
-                    </td>
-                    
-                    <td class="p-4 text-center ">
-                        <Icon name="bi:three-dots-vertical" class="text-base" />
-
-                    </td>
-                </tr>
-
-
-
-                <tr>
-                    <td class="p-4 flex items-center gap-3">
-                        
-                        <img src="../assets/employyee1.png" class="w-15 h-15 rounded-full object-cover border border-gray-100" />
-                        <div>
-                            <p class="font-bold text-gray-800">Apav Cuties</p>
-                            <p class="text-[10px] text-gray-400 font-medium">Full-Stack Developer</p>
-                        </div>
-
-                    </td>
-                    
-                    <td class="p-4 text-center text-gray-400 font-medium">Jan 24 2026</td>                     
-                    <td class="p-4 text-center text-gray-400 text-2xl">--</td>
-
-
-                                   
-                    <td class="p-4 text-center text-gray-400 text-2xl">--</td>
-
-                    <td class="p-4 text-center text-gray-400 text-2xl">--</td>
-
-                    
-                    <td class="p-4">
-                        <div class="flex justify-center">
-                        <span class="bg-red-50 text-red-500 border border-red-100 px-3 py-1 rounded-full text-sm font-bold ">
-                            Absent
-                        </span>
-                        </div>
-                    </td>
-                    
-                    <td class="p-4 text-center ">
-                        <Icon name="bi:three-dots-vertical" class="text-base" />
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="p-4 flex items-center gap-3">
-                        
-                        <img src="../assets/employeepf2.png" class="w-15 h-15 rounded-full object-cover border border-gray-100" />
-                        <div>
-                            <p class="font-bold text-gray-800">Bessie Cooper</p>
-                            <p class="text-[10px] text-gray-400 font-medium">Product Designer</p>
-                        </div>
-
-                    </td>
-                    
-                    <td class="p-4 text-center text-gray-400 font-medium">Jan 24 2026</td>
-                    <td class="p-4 text-center text-gray-400 font-medium">10:40 Am</td>
-                    <td class="p-4 text-center text-gray-400 font-medium">6:44 AM</td>
-
-                
-                    <td class="p-4 text-center text-gray-400 font-medium">8h:4mn</td>
-
-                    
-                    <td class="p-4">
-                        <div class="flex justify-center">
-                        <span class="bg-orange-50 text-orange-500 border border-orange-100 px-3 py-1 rounded-full text-sm font-bold ">
-                            Late
-                        </span>
-                        </div>
-                    </td>
-                    
-                    <td class="p-4 text-center ">
-                        <Icon name="bi:three-dots-vertical" class="text-base" />
-
-                    </td>
-                </tr>
-
-                
-
             </tbody>
-
         </table>
-
+        
+        <div v-if="employees.length === 0" class="p-10 text-center text-gray-400">
+            No employee records found.
+        </div>
     </div>
-
+  </div>
 </template>
-
-
-<script setup>
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-const attendanceData = [
-  {
-    name: 'LimNi Mol',
-    position: 'UI/UX Designer',
-    image: 'http://localhost:3000/_nuxt/assets/employeepf.png',
-    sun: '4', 
-    tue: '4h 36m', tueIcon: 'line-md:alert-circle', tueStyle: 'bg-orange-50 text-orange-400 border-orange-100',
-    wed: 'Leave', wedIcon: 'line-md:emoji-frown', wedStyle: 'bg-purple-50 text-purple-600 rounded-full border-purple-100',
-    fri: '9', sat: '10'
-  },
-  {
-    name: 'Bessie Cooper',
-    position: 'Product Designer',
-    image: 'http://localhost:3000/_nuxt/assets/employeepf2.png',
-    sun: '4', 
-    tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
-    wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
-    fri: '9', sat: '10'
-  },
-
-  {
-    name: 'Apav Cuties',
-    position: 'Full-Stack Developer',
-    image: 'http://localhost:3000/_nuxt/assets/employyee1.png',
-    sun: '4', 
-    tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
-    wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
-    fri: '9', sat: '10'
-  },
-  {
-    name: 'Apav Cuties',
-    position: 'Full-Stack Developer',
-    image: 'http://localhost:3000/_nuxt/assets/employyee1.png',
-    sun: '4', 
-    tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
-    wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
-    fri: '9', sat: '10'
-  },
-  {
-    name: 'Apav Cuties',
-    position: 'Full-Stack Developer',
-    image: 'http://localhost:3000/_nuxt/assets/employyee1.png',
-    sun: '4', 
-    tue: '8 Hours', tueIcon: 'line-md:circle-to-confirm-circle-transition', tueStyle: 'bg-green-50 text-green-600 border-green-100',
-    wed: 'Absent', wedIcon: 'line-md:close-circle', wedStyle: 'bg-red-50 text-red-600 rounded-full border-red-100',
-    fri: '9', sat: '10'
-  },
-
-]
-
-
-</script>
