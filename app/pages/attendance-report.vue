@@ -184,7 +184,7 @@ onMounted(loadEmployees);
                   <div class="w-px h-10 bg-slate-200"></div>
                   <div class="text-center">
                     <p class="text-[10px] font-black text-slate-400 uppercase">Overtime</p>
-                    <p class="text-2xl font-black text-emerald-500">+8h</p>
+                    <p class="text-2xl font-black text-emerald-500">+0h</p>
                   </div>
                   <div class="w-px h-10 bg-slate-200"></div>
                   <div class="text-center">
@@ -196,22 +196,22 @@ onMounted(loadEmployees);
                 <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 col-span-2 flex justify-around items-center">
                   <div class="text-center">
                     <p class="text-[10px] font-black text-slate-400 uppercase">Total Present</p>
-                    <p class="text-2xl font-black text-slate-800">842</p>
+                    <p class="text-2xl font-black text-slate-800">0</p>
                   </div>
                   <div class="w-px h-10 bg-slate-200"></div>
                   <div class="text-center">
                     <p class="text-[10px] font-black text-slate-400 uppercase">Total Absent</p>
-                    <p class="text-2xl font-black text-red-500">8</p>
+                    <p class="text-2xl font-black text-red-500">0</p>
                   </div>
                   <div class="w-px h-10 bg-slate-200"></div>
                   <div class="text-center">
                     <p class="text-[10px] font-black text-slate-400 uppercase">Total Late</p>
-                    <p class="text-2xl font-black text-indigo-500">9</p>
+                    <p class="text-2xl font-black text-indigo-500">0</p>
                   </div>
                   <div class="w-px h-10 bg-slate-200"></div>
                   <div class="text-center">
                     <p class="text-[10px] font-black text-slate-400 uppercase">Total Leave</p>
-                    <p class="text-2xl font-black text-red-500">9</p>
+                    <p class="text-2xl font-black text-red-500">0</p>
                   </div>
                 </div>
               </div>
