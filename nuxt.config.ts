@@ -8,7 +8,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/icon',
     '@nuxtjs/google-fonts',
-    '@vesp/nuxt-fontawesome'
+    '@vesp/nuxt-fontawesome',
+    '@nuxtjs/axios'
   ],
   
   vite: {
